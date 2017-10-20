@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.BackendMovieMapper">
+
+    <!-- 统计电影数量 -->
+    <select id="findMovieNum" resultType="Integer">
+        select count(movie_id) from movie_info
+    </select>
+
+    <!-- 统计用户的数量 -->
+    <select id="findUserNum" resultType="Integer">
+        select count(user_id) from user
+    </select>
+
+    <!-- 统计电影种类的数量 -->
+    <select id="findMovieTypeNum" resultType="Integer">
+        select count(type_id) from type
+    </select>
+
+    <!-- 查找所有的电影 -->
+    <select id="findAllMovie" resultType="cn.vworld.bean.MovieInfo">
+        select * from movie_info
+    </select>
+
+    <!-- 查询所有的电影类型 -->
+    <select id="finAllMovieType" resultType="cn.vworld.bean.Type">
+        select * from type
+    </select>
+
+    <!-- 查询用户对应的评论数量 -->
+    <select id="findUserByCommentNum" resultType="User">
+        select * from user
+    </select>
+
+    <select id="findMovieList" resultType="cn.vworld.bean.MovieInfo">
+         <![CDATA[
+
+              SELECT  * FROM movie_info limit #{showpage}, #{lines}
+
+
+        ]]>
+
+    </select>
+
+    <insert id="saveMovie">
+        insert into movie_info(
+        <if test="movieId != null">movie_id,</if>
+        <if test="movieName != null">movie_name,</if>
+        <if test="showTime != null">show_time,</if>
+        <if test="description != null">description,</if>
+        <if test="director != null">director,</if>
+        <if test="actor != null">actor,</if>
+        <if test="poster != null">poster,</if>
+        <if test="playtime != null">playtime,</if>
+        <if test="country != null">country,</if>
+        <if test="createTime != null">create_time,</if>
+        <if test="updateTime != null">update_time</if>
+        )
+        values(
+        <if test="movieId != null">#{movieId},</if>
+        <if test="movieName != null">#{movieName},</if>
+        <if test="showTime != null">#{showTime},</if>
+        <if test="description != null">#{description},</if>
+        <if test="director != null">#{director},</if>
+        <if test="actor != null">#{actor},</if>
+        <if test="poster != null">#{poster},</if>
+        <if test="playtime != null">#{playtime},</if>
+        <if test="country != null">#{country},</if>
+        #{createTime, javaType=Date},
+        #{updateTime, javaType=Date}
+        )
+    </insert>
+
+</mapper>

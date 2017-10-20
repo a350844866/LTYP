@@ -3,11 +3,16 @@ package cn.vworld.controller;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
 import cn.vworld.service.UserService;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/login")
@@ -49,6 +54,19 @@ public class LoginController {
     public String saveUser(User user, UserInfo userInfo) {
         userService.saveUser(user,userInfo);
         return "redirect:/login/signin";
+    }
+    //TODO :需要纠正乱码
+    /**
+     * Ajax异步查询数据库 判断用户名是否被占用
+     * @param response
+     * @param request
+     * @throws IOException
+     */
+    @RequestMapping(value = "/AjaxCheckUsername",method = RequestMethod.POST,produces = "text/html;charset=utf-8")
+    public void checkUsername(HttpServletResponse response, HttpServletRequest request) throws IOException {
+       String username = request.getParameter("username");
+        User result =  userService.checkUsername(username);
+        response.getWriter().write(result!=null?"用户名已存在!":"恭喜您!用户名可以使用");
     }
 
 

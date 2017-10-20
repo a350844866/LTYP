@@ -46,7 +46,7 @@
 				<nav>
 					<div class="wrap-nav">
 					   <ul>
-						 <li class="active"><a href="index.html">首页</a></li>
+						 <li class="active"><a href="/movie/showmovie">首页</a></li>
 						 <li><a href="single.html"> </a></li>
 						 <li><a href="single.html">社区</a></li>
 						 <li><a href="single.html"> </a></li>

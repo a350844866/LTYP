@@ -37,4 +37,133 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <!--修改用户信息-->
+    <update id="updateUserInfo">
+        update user_info
+        <set>
+            <if test="name!=null">name = #{name},</if>
+            <if test="age!=null">age = #{age},</if>
+            <if test="gender!=null">gender = #{gender},</if>
+            <if test="sign!=null">sign = #{sign},</if>
+            <if test="phone!=null">phone = #{phone},</if>
+            <if test="hpic!=null">hpic = #{hpic},</if>
+            <if test="nickname!=null">nickname = #{nickname},</if>
+            <if test="updateTime!=null">update_time = #{updateTime},</if>
+        </set>
+        where user_info_id = #{userInfoId}
+    </update>
+
+
 </mapper>

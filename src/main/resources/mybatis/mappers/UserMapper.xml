@@ -49,4 +49,79 @@ where username=#{username} and password = #{password}
         <if test="userId!=null">#{userId}</if>
         )
     </insert>
+
+    <update id="updatePassword">
+        update user set password = #{password} where user_id = #{userId}
+    </update>
+
+    <select id="findUserByEmail" resultMap="userRM">
+        select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+          ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where u.email = #{email}
+    </select>
+    <!--显示全部用户，不包括管理员-->
+    <select id="findAllUser" resultMap="userRM">
+         select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+          ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where r.role_name = "用户"
+    </select>
+
+    <select id="findUserByUsername" resultMap="userRM">
+        select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+        ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where r.role_name = "用户" and u.username like "%${username}%"
+    </select>
+    <!--显示全部管理员-->
+    <select id="findAllAdmin" resultMap="userRM">
+         select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+        ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where not r.role_name = "用户"
+    </select>
+    <!--删除管理员-->
+    <delete id="deleteAdmin">
+        delete from user where user_id = #{userId}
+    </delete>
+    <!--删除管理员角色关联表-->
+    <delete id="deleteAdminRole">
+        delete from role_user where user_id = #{userId}
+    </delete>
+    <!--查询用户详情-->
+    <select id="findUserByUserId" resultMap="userRM">
+        select u.*,r.* from
+        (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+        ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+        left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+        where u.user_id = #{userId}
+    </select>
+    <!--查询用户喜欢的电影类型-->
+    <select id="findUserType" resultType="Type">
+        select t.type_id,t.type_name from
+        type t left join user_type u on u.type_id = t.type_id
+        where u.user_id = #{userId}
+    </select>
+    <!--删除用户-电影类型关联表数据-->
+    <delete id="deleteUserTypes">
+        delete from user_type where user_id = #{userId}
+    </delete>
+    <!--添加用户-电影类型关联表数据-->
+    <insert id="saveUserType">
+        insert into user_type values(#{userId}, #{typeId})
+    </insert>
+    <!--修改用户信息-->
+    <select id="checkUsername" resultMap="userRM">
+        select u.*,r.* from
+    (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
+    ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
+    left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
+    where username=#{username}
+    </select>
+
 </mapper>

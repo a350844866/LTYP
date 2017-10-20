@@ -18,11 +18,7 @@ public class BaseController {
         dateFormat.setLenient(true);
         binder.registerCustomEditor(Date.class, new CustomDateEditor(dateFormat, true));
     }
-    @RequestMapping("/")
-    public String index() {
-        return "redirect:/index";
 
-    }
 
 
 

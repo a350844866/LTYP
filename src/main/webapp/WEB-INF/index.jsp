@@ -41,197 +41,206 @@
 						<div class="title">
 							<center><h2>MOVIE</h2></center>
 						</div>
-						 
 					</div>
 					<div class="row">
-						<div class="col-1-4">
+                        <c:forEach items="${movieList}" var="m">
+                        <div class="col-1-4">
 							<div class="wrap-col">
 								<div class="post">
-									<div class="view effect">  
-									 <img class="thumb" src="${ctx}/staticfile/images/1.jpg"  />
-									  <div class="mask">  
+									<div class="view effect">
+									 <img class="thumb" src="${ctx}/${m.poster}"/>
+									  <div class="mask">
 										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									  
+									  </div>
+
 									</div>
 									<div class="clear"></div>
-									<a href="single.html"><h3>Lethal Weapon 4</h3></a>
-									<span>Lorem ipsum dolor sit</span>
+									<a href="single.html"><h3>${m.movieName}</h3></a>
+									<span>${m.country}</span>
 								</div>
 							</div>
 						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Film's Name</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									 <img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Lord Of War</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect"> 
-									  <img class="thumb" src="${ctx}/staticfile/images/5.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Film's Name</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									 <%--<img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Lord Of War</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect"> --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/5.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+                        </c:forEach>
 					</div>
+
+
 					<div class="row">
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									 <img class="thumb" src="${ctx}/staticfile//images/1.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									  
-									</div>
-									<div class="clear"></div>
-									<a href="single.html"><h3>Lethal Weapon 4</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Film's Name</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									 <img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Lord Of War</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect"> 
-									  <img class="thumb" src="${ctx}/staticfile//images/5.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-					</div>
+                        <c:forEach items="${movieList2}" var="m">
+                        <div class="col-1-4">
+                            <div class="wrap-col">
+                                <div class="post">
+                                    <div class="view effect">
+                                        <img class="thumb" src="${ctx}/${m.poster}"/>
+                                        <div class="mask">
+                                            <a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                        </div>
+
+                                    </div>
+                                    <div class="clear"></div>
+                                    <a href="single.html"><h3>${m.movieName}</h3></a>
+                                    <span>${m.country}</span>
+                                </div>
+                            </div>
+                        </div>
+                        </c:forEach>
+                    </div>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/2.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Film's Name</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+                    <%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									 <%--<img class="thumb" src="${ctx}/staticfile/images/4.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Lord Of War</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect"> --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile//images/5.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>The Sorcerer's Apprentice</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+
+
 					<div class="row">
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/3.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>National Treasure</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/6.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Seeking Justice</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/7.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Season Of The Witch</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-						<div class="col-1-4">
-							<div class="wrap-col">
-								<div class="post">
-									<div class="view effect">  
-									  <img class="thumb" src="${ctx}/staticfile/images/8.jpg"  />
-									  <div class="mask">  
-										<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
-									  </div>  
-									</div>
-									<a href="single.html"><h3>Three Mustketeers</h3></a>
-									<span>Lorem ipsum dolor sit</span>
-								</div>
-							</div>
-						</div>
-					</div>
-					<center><div class="pagination">
-						<a href="#" class="page gradient">first</a><a
-						href="#" class="page gradient">2</a><a href="#"
-						class="page gradient">3</a><span class=
-						"page active">4</span><a href="#" class=
-						"page gradient">5</a><a href="#" class=
-						"page gradient">6</a><a href="#" class=
-						"page gradient">last</a>
-					</div></center>
-				</div> 
-		</div> 
+
+                        <c:forEach items="${movieList3}" var="m">
+                            <div class="col-1-4">
+                                <div class="wrap-col">
+                                    <div class="post">
+                                        <div class="view effect">
+                                            <img class="thumb" src="${ctx}/${m.poster}"/>
+                                            <div class="mask">
+                                                <a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>
+                                            </div>
+
+                                        </div>
+                                        <div class="clear"></div>
+                                        <a href="single.html"><h3>${m.movieName}</h3></a>
+                                        <span>${m.country}</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:forEach>
+                    </div>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/6.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Seeking Justice</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/7.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Season Of The Witch</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+						<%--<div class="col-1-4">--%>
+							<%--<div class="wrap-col">--%>
+								<%--<div class="post">--%>
+									<%--<div class="view effect">  --%>
+									  <%--<img class="thumb" src="${ctx}/staticfile/images/8.jpg"  />--%>
+									  <%--<div class="mask">  --%>
+										<%--<a href="single.html" class="info" title="Full Image"><img src="${ctx}/staticfile/images/play_button_64.png" /></a>--%>
+									  <%--</div>  --%>
+									<%--</div>--%>
+									<%--<a href="single.html"><h3>Three Mustketeers</h3></a>--%>
+									<%--<span>Lorem ipsum dolor sit</span>--%>
+								<%--</div>--%>
+							<%--</div>--%>
+						<%--</div>--%>
+                    <center>
+                    <c:forEach begin="1" end="${pages}" step="1" var="p">
+                        <a class="page gradient" href="${ctx}/movie/findeAllPage?page=${p}">${p}</a>
+                    </c:forEach>
+                    </center>
+				</div>
+		</div>
 
 		<div id="sidebar" class="col-1-3">
 			<div class="wrap-sidebar">
@@ -269,7 +278,7 @@
 					</div>
 				</div>
 				<!---- Start Widget ---->
-		 
+
 
 
 
@@ -308,6 +317,7 @@
 			</div>
 		</div>
 	</div>
+    </div>
 </section>
 
  
