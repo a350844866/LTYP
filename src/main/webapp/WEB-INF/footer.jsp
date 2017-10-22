@@ -19,17 +19,16 @@
 					<div class="wrap-col">
 						<div class="widget wid-meta">
 							<div class="wid-header">
-								<h5>Links List</h5>
+								<h5>关于我们</h5>
 							</div>
 							<div class="widget-content">
 								<div class="row">
 									<ul>
-										<li><a href="#">> Lorem ipsum dolor sit </a></li>
-										<li><a href="#">> Nullam venenatis lacus a </a></li>
-										<li><a href="#">> Morbi ut sapien nec nisl</a></li>
-										<li><a href="#">> Integer a enim ac ex.</a></li>
-										<li><a href="#">> Sed in nunc non eleifend  </a></li>
-										<li><a href="#">> Integer a enim ac ex.</a></li>
+										<li><a href="#">> 帮助 </a></li>
+										<li><a href="#">> 乐途的历史 </a></li>
+										<li><a href="#">> 什么是乐途</a></li>
+										<li><a href="#">> 反馈</a></li>
+
 									</ul>
 								</div>
 							</div>
@@ -40,14 +39,13 @@
 					<div class="wrap-col">
 						<div class="widget wid-report">
 							<div class="wid-header">
-								<h5>Report Link</h5>
+								<h5>我们的目标</h5>
 							</div>
 							<div class="wid-content">
-								<p>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy 
-								eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. 
-								At vero eos et accusam et justo duo dolores et ea rebum. Consetetur sadipscing elitr,  
-								sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum.</p>
+								<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;我们致力于为您提供最新,最完善,最简单的电影信息!<br/>
+									&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;欢迎你为我们提供最宝贵的意见.</p>
 							</div>
+
 						</div>
 					</div>
 				</div>
@@ -55,17 +53,21 @@
 					<div class="wrap-col">
 						<div class="widget wid-meta">
 							<div class="wid-header">
-								<h5>Links List</h5>
+								<h5>跟随我们的脚步</h5>
 							</div>
 							<div class="widget-content">
 								<div class="row">
 									<ul>
-										<li><a href="#">> Lorem ipsum dolor sit </a></li>
-										<li><a href="#">> Nullam venenatis lacus a </a></li>
-										<li><a href="#">> Morbi ut sapien nec nisl</a></li>
-										<li><a href="#">> Integer a enim ac ex.</a></li>
-										<li><a href="#">> Sed in nunc non eleifend  </a></li>
-										<li><a href="#">> Integer a enim ac ex.</a></li>
+
+										<img src="${ctx}/staticfile/images/book.JPG" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/zh.jpg" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/xl.jpg" width="60px" height="80px"/><br/><br/>
+										<img src="${ctx}/staticfile/images/db.jpg" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/lk.JPG" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/tb.JPG" width="60px" height="80px"/><br/><br/>
+										<img src="${ctx}/staticfile/images/rr.JPG" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/ty.JPG" width="60px" height="80px"/>&nbsp;&nbsp;
+										<img src="${ctx}/staticfile/images/wx.JPG" width="60px" height="80px"/>
 									</ul>
 								</div>
 							</div>

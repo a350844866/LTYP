@@ -1,5 +1,6 @@
 package cn.vworld.service.backservice;
 
+import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
@@ -53,8 +54,7 @@ public class BackendMovieServiceImpl implements BackendMovieService {
     }
 
     @Override
-    public void saveMovie(MovieInfo movieInfo) {
-
+    public void saveMovie(MovieInfo movieInfo, String[] xqpath) {
         String movieId = UUID.randomUUID().toString();
 
         movieInfo.setMovieId(movieId);
@@ -64,7 +64,31 @@ public class BackendMovieServiceImpl implements BackendMovieService {
         movieInfo.setUpdateTime(movieInfo.getCreateTime());
 
         backendMovieMapper.saveMovie(movieInfo);
+
+        if (xqpath == null) {
+            return;
+        }
+
+        MovieImage movieImage = null;
+
+        for (int i = 0; i < xqpath.length; i++) {
+            String imageId = UUID.randomUUID().toString();
+
+            movieImage = new MovieImage();
+            movieImage.setMovieId(movieId);
+            movieImage.setImageId(imageId);
+            movieImage.setImageUrl(xqpath[i]);
+
+            backendMovieMapper.saveMoviexqPath(movieImage);
+
+
+            if (movieImage.getImageUrl() == null) {
+                backendMovieMapper.deleteNullPosterUrl(movieImage.getImageId());
+            }
+
+
+        }
+
+
     }
-
-
 }

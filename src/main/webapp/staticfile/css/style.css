@@ -118,8 +118,19 @@ header #search input[type="submit"]{
 
 .logo img{max-height: 80px;display: inline-block;}
 
-nav { margin: 0px auto 0px auto;display: inline-block;}
-nav .active a{background: #fcab2b!important;}
+#nav1 {
+    margin: 0px auto 0px auto;
+    display: inline-block;
+}
+
+#nav1 .active a {
+    background: #fcab2b !important;
+}
+
+#nav2 {
+    margin: 0px auto 0px auto;
+    display: inline-block;
+}
 
 #menu {background-color:#000;border-bottom: 4px solid #fcab2b;text-align: center;}
 #menu ul{padding:0px;margin:0px;list-style: none;}
@@ -128,7 +139,39 @@ nav .active a{background: #fcab2b!important;}
 #menu ul a {float:left;color: #fff; text-transform: uppercase;padding: 10px 20px;font-size: 15px;letter-spacing: 2px;}
 #menu a:hover{background: #fcab2b;}
 
+#menu2 {
+    background-color: #000;
+    border-bottom: 4px solid #fcab2b;
+    text-align: center;
+}
 
+#menu2 ul {
+    padding: 0px;
+    margin: 0px;
+    list-style: none;
+}
+
+#menu2 ul li {
+    display: inline;
+}
+
+#menu2 ul form {
+    float: left;
+    padding: 0px 20px;
+}
+
+#menu2 ul a {
+    float: left;
+    color: #fff;
+    text-transform: uppercase;
+    padding: 0px 20px;
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+
+#menu2 a:hover {
+    background: #fcab2b;
+}
 header .nav-bar { }
 header .nav-bar .wrap-nav{}
 /* ---------------------------------------------------------------------------- */

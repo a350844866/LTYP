@@ -40,13 +40,14 @@
             <div class="block-body">
                 <form>
                     <label>邮箱地址</label>
-                    <input type="text" class="span12"></input>
-                    <a href="index.html" class="btn btn-primary pull-right">发 送</a>
+                    <input type="text" name="email" class="span12"/>
+                    <a href="#" class="btn btn-primary pull-right"
+                       onclick="formSubmit('${ctx}/sendForgetMail', '_self')">发 送</a>
                     <div class="clearfix"></div>
                 </form>
             </div>
         </div>
-        <a href="sign-in.html">登录账户</a>
+        <a href="${ctx}/login/signin">登录账户</a>
     </div>
 </div>
 

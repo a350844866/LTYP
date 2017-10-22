@@ -36,5 +36,7 @@ public interface BackendMovieService {
     List<MovieInfo> findMovieList(int showpage, int lines);
 
     // 存储电影信息
-    public void saveMovie(MovieInfo movieInfo);
+    public void saveMovie(MovieInfo movieInfo,String[] xqpath);
+
+
 }

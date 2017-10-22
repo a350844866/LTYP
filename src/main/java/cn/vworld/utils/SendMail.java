@@ -13,7 +13,7 @@ import java.util.Properties;
 
 public class SendMail {
     /**
-     * 电影发送类
+     * 邮件发送类
      * @param to 代表给谁发邮件
      * @param validateUrl 代表要发送的超链接
      * @throws Exception
@@ -32,7 +32,7 @@ public class SendMail {
                 /**
                  * 创建一个邮箱账号
                  */
-                return new PasswordAuthentication("hjh0370@163.com", "hjh1995");
+                return new PasswordAuthentication("hjh0370@163.com", "hjh1995828");
             }
 
         });

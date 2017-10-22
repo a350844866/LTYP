@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.BackDoMovieMapper">
+
+    <!-- 根据movieId选择movieInfo实例 -->
+    <select id="findMovieInfoByMovieId" resultType="MovieInfo">
+        select * from movie_info where movie_id=#{movieId}
+    </select>
+
+    <!-- 根据movieId选择movieImage实例 -->
+    <select id="findMovieImageByMovieId" resultType="MovieImage">
+        select * from movie_image where movie_id=#{movieId}
+    </select>
+
+    <!-- 根据movieId删除movie Info实例 -->
+    <delete id="deleteMovieInfoByMovieId">
+        delete from movie_info where movie_id = #{movieId}
+    </delete>
+
+    <!-- 根据movieID删除movieImage实例 -->
+    <delete id="deleteMovieImageByMovieId">
+        delete from movie_image where movie_id = #{movieId}
+    </delete>
+
+    <delete id="deleteMovieInfoByMovieIds">
+        delete from movie_info where movie_id in(
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+
+    <delete id="deleteMovieImageByMovieIds">
+        delete from movie_image where movie_id in (
+        <foreach collection="array" item="id" separator=",">
+            #{id}
+        </foreach>
+        )
+    </delete>
+</mapper>

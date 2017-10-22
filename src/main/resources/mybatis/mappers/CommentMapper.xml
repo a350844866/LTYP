@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.CommentMapper">
+      <select id="findCommentsByMovie" resultMap="commentRM">
+          select comment.*,user.username from comment LEFT JOIN user on comment.user_id =user.user_id where movie_id=#{movieInfoId}
+      </select>
+
+      <resultMap id="commentRM" type="Comment" autoMapping="true">
+          <id property="commId" column="comm_id"/>
+          <association property="user" javaType="User">
+              <id column="userId" property="user_id"></id>
+              <result property="username" column="username"></result>
+          </association>
+      </resultMap>
+
+    <insert id="insertComment">
+        INSERT INTO comment(
+        <if test="commId!=null">comm_id,</if>
+        <if test="user.userId!=null">user_id,</if>
+        <if test="movieId!=null">movie_id,</if>
+        <if test="commDetail!=null">comm_detail,</if>
+        <if test="createTime!=null">create_time,</if>
+        <if test="updateTime!=null">update_time</if>
+        )
+        VALUES (
+        <if test="commId!=null">#{commId},</if>
+        <if test="user.userId!=null">#{user.userId},</if>
+        <if test="movieId!=null">#{movieId},</if>
+        <if test="commDetail!=null">#{commDetail},</if>
+        <if test="createTime!=null">#{createTime},</if>
+        <if test="updateTime!=null">#{updateTime}</if>
+        )
+    </insert>
+
+
+</mapper>

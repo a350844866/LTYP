@@ -9,9 +9,18 @@ public class MovieInfo extends BaseEntity {
     private String director;    //导演
     private String actor;       //主演
     private String poster;      //海报 路径
+    private Score score;
 
 
-    private String playtime;        //时长
+    public Score getScore() {
+        return score;
+    }
+
+    public void setScore(Score score) {
+        this.score = score;
+    }
+
+    private String playtime;    //时长
     private String country;     //国家
 
 
@@ -96,5 +105,22 @@ public class MovieInfo extends BaseEntity {
 
     public void setCountry(String country) {
         this.country = country;
+    }
+
+    @Override
+    public String toString() {
+        return "MovieInfo{" +
+                "movieId='" + movieId + '\'' +
+                ", movieName='" + movieName + '\'' +
+                ", showTime='" + showTime + '\'' +
+                ", description='" + description + '\'' +
+                ", avgscore=" + avgscore +
+                ", director='" + director + '\'' +
+                ", actor='" + actor + '\'' +
+                ", poster='" + poster + '\'' +
+                ", score=" + score +
+                ", playtime='" + playtime + '\'' +
+                ", country='" + country + '\'' +
+                '}';
     }
 }

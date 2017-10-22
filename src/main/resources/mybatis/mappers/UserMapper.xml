@@ -13,7 +13,7 @@ where username=#{username} and password = #{password}
     </select>
     <select id="findUserByU_P_simple" resultType="User">
         select * from user
-        WHERE username=#{username} and password=#{password}
+        where username=#{username} and password=#{password}
     </select>
 
     <resultMap id="userRM" type="User" autoMapping="true">
@@ -30,7 +30,7 @@ where username=#{username} and password = #{password}
     </resultMap>
 
     <insert id="saveUser">
-        INSERT INTO USER (
+        insert into user (
         <if test="username!=null">username,</if>
         <if test="password!=null">password,</if>
         <if test="state!=null">state,</if>
@@ -39,7 +39,7 @@ where username=#{username} and password = #{password}
         <if test="updateTime!=null">update_time,</if>
         <if test="userId!=null">user_id</if>
 
-        ) VALUES (
+        ) values (
         <if test="username!=null">#{username},</if>
         <if test="password!=null">#{password},</if>
         <if test="state!=null">#{state},</if>
@@ -75,7 +75,7 @@ where username=#{username} and password = #{password}
         (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
         ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
         left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
-        where r.role_name = "用户" and u.username like "%${username}%"
+        where r.role_name = "用户" and u.username like "%"#{username}"%"
     </select>
     <!--显示全部管理员-->
     <select id="findAllAdmin" resultMap="userRM">
@@ -121,7 +121,21 @@ where username=#{username} and password = #{password}
     (select u.user_id,u.username,u.password,u.state,u.ban,ui.age,ui.email,ui.gender,
     ui.hpic,ui.name,ui.nickname,ui.phone,ui.sign from user u left join user_info ui on u.user_id = ui.user_info_id) u
     left join role_user ru on u.user_id = ru.user_id left join role r on ru.role_id = r.role_id
-    where username=#{username}
+        where username=#{username} or u.email=#{username}
     </select>
 
+
+    <!--封号/解封-->
+    <update id="updateBan">
+        update user set ban = #{ban} where user_id = #{userId}
+    </update>
+    <!--添加职位-->
+    <insert id="saveUserRole">
+        insert into role_user values (#{userId}, #{roleId});
+    </insert>
+
+    <!--邮箱激活修改状态-->
+    <update id="updateState">
+        update user set state = 1 where user_id = #{userId}
+    </update>
 </mapper>

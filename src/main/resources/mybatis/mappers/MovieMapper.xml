@@ -5,16 +5,66 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="cn.vworld.mapper.MovieMapper">
       <select id="findfirstfourMovie" resultType="MovieInfo">
-          select * from movie_info where movie_id BETWEEN #{page} AND #{page}+3
+          select * from movie_info where movie_id limit #{page},#{rowNum}
       </select>
     <select id="findsecondfourMovie" resultType="MovieInfo">
-          select * from movie_info where movie_id BETWEEN #{page} AND #{page}+3
+        select * from movie_info where movie_id limit #{page},#{rowNum}
       </select>
     <select id="findthirdfourMovie" resultType="MovieInfo">
-          select * from movie_info where movie_id BETWEEN #{page} AND #{page}+3
+        select * from movie_info where movie_id limit #{page},#{rowNum}
       </select>
 
     <select id="findMovieNum" resultType="java.lang.Integer">
         select COUNT(*) from movie_info
     </select>
+
+    <select id="findMovieInfoByMovieInfoId" resultType="MovieInfo">
+         select * from movie_info where movie_id=#{movieId}
+    </select>
+    <!--<resultMap id="MovieInfoRM" type="MovieInfo" autoMapping="true">-->
+    <!--<id property="movieId" column="movie_id"/>-->
+    <!--<association property="score" column="score" javaType="Score">-->
+    <!--<id property="score" column="score"></id>-->
+    <!--</association>-->
+    <!--</resultMap>-->
+
+    <select id="findMovieListBySearch" resultType="MovieInfo">
+        select * from movie_info
+where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
+      or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
+    </select>
+
+    <select id="findNewUpdateMovie" resultType="MovieInfo">
+        select * from movie_info order by update_time DESC LIMIT 0,#{number}
+    </select>
+
+    <select id="typeSearch" resultType="MovieInfo">
+        select movie_info.* from movie_info left join movie_type on movie_info.movie_id=movie_type.movie_id where movie_type.type_id=#{typeId};
+    </select>
+
+    <select id="findMovieNumBySearch" resultType="java.lang.Integer">
+        select COUNT(*) from movie_info
+where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
+      or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
+    </select>
+
+    <select id="limitMovieListBySearch" resultType="MovieInfo">
+        select * from movie_info
+      where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
+      or director like "%"#{search}"%" or actor like "%"#{search}"%" or country like "%"#{search}"%"
+      limit #{page},#{resultPageMovie}
+    </select>
+
+    <select id="typeSearchCount" resultType="java.lang.Integer">
+        select COUNT(*) from movie_info left join movie_type on movie_info.movie_id=movie_type.movie_id where movie_type.type_id=#{typeId}
+    </select>
+
+    <select id="limitTypeSearch" resultType="MovieInfo">
+      select movie_info.* from movie_info left join movie_type on movie_info.movie_id=movie_type.movie_id where movie_type.type_id=#{typeId}
+      limit #{page},#{resultPageMovie}
+    </select>
+
+    <update id="updateScore">
+        UPDATE movie_info set avgscore=#{avgScore} where movie_id=#{movieId}
+    </update>
 </mapper>

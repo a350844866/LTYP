@@ -1,5 +1,6 @@
 package cn.vworld.service;
 
+import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
@@ -96,8 +97,9 @@ public interface UserService {
      * 增加管理员
      * @param user
      * @param userInfo
+     * @param role
      */
-    void saveAdmin(User user, UserInfo userInfo);
+    void saveAdmin(User user, UserInfo userInfo, String role);
 
     /**
      * 查看用户详情

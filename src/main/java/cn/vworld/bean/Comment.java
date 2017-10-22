@@ -2,10 +2,10 @@ package cn.vworld.bean;
 
 public class Comment extends BaseEntity {
     private String commId;      //评论id
-    private String userId;      //userId
+//    private String userId;      //userId
     private String movieId;     //电影id
     private String commDetail;  //评论内容
-
+    private User user;          //User对象
     public String getCommId() {
         return commId;
     }
@@ -14,12 +14,12 @@ public class Comment extends BaseEntity {
         this.commId = commId;
     }
 
-    public String getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public String getMovieId() {

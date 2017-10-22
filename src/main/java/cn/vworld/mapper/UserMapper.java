@@ -1,5 +1,6 @@
 package cn.vworld.mapper;
 
+import cn.vworld.bean.Role;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import org.apache.ibatis.annotations.Param;
@@ -45,4 +46,6 @@ public interface UserMapper {
   
     User checkUsername(String username);
 
+    //添加管理员时候的职位设定
+    void saveUserRole(@Param("userId") String userId, @Param("roleId") String roleId);
 }

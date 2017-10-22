@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.ScoreMapper">
+
+    <select id="isScoreExist" resultType="Score">
+        select * from score where user_id=#{userId} and movie_id=#{movieId}
+    </select>
+    <insert id="insertScore">
+        INSERT INTO score VALUES
+         (#{movieId},#{userId},#{score},#{createTime},#{createTime})
+    </insert>
+
+    <select id="getAvgScore" resultType="java.lang.Double">
+        select avg(score) from score where movie_id=#{movieId}
+    </select>
+
+
+</mapper>

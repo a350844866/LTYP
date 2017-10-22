@@ -222,7 +222,7 @@
         <div class="block">
             <p class="block-heading">Sign Up</p>
             <div class="block-body">
-                <form>
+                <form onsubmit="return formObj.checkForm()" action="/login/regist" target="_self">
                     <label>用户名:</label>
                     <input type="text" class="username" name="username">
                     <span id ="username_msg" style="color:red"></span>
@@ -239,7 +239,8 @@
                     <label>手机号:</label>
                     <input type="text" class="phone" name="phone">
                     <span id="phone_msg" style="color:red;"></span>
-                    <a href="#" onclick="formSubmit('regist','_self');this.blur();" class="btn btn-primary pull-right">注 册</a>
+                    <%--<a href="#" onclick="formSubmit('regist','_self');this.blur();" class="btn btn-primary pull-right">注 册</a>--%>
+                    <button type="submit" class="btn btn-primary pull-right">注册</button>
                     <label class="remember-me"><input type="checkbox" name="agree"> I agree with the <a href="terms-and-conditions.html">Terms and Conditions</a></label>
                     <div class="clearfix"></div>
                 </form>

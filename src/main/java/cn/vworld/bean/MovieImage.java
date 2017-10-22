@@ -1,16 +1,16 @@
 package cn.vworld.bean;
 
 public class MovieImage {
-    private String imgageId;     //图片id
+    private String imageId;     //图片id
     private String movieId;     //电影id
-    private String imgUrl;      //图片地址
+    private String imageUrl;      //图片地址
 
-    public String getImgageId() {
-        return imgageId;
+    public String getImageId() {
+        return imageId;
     }
 
-    public void setImgageId(String imgageId) {
-        this.imgageId = imgageId;
+    public void setImageId(String imageId) {
+        this.imageId = imageId;
     }
 
     public String getMovieId() {
@@ -21,11 +21,11 @@ public class MovieImage {
         this.movieId = movieId;
     }
 
-    public String getImgUrl() {
-        return imgUrl;
+    public String getImageUrl() {
+        return imageUrl;
     }
 
-    public void setImgUrl(String imgUrl) {
-        this.imgUrl = imgUrl;
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
     }
 }

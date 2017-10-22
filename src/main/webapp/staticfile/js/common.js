@@ -147,10 +147,10 @@ function checkAllBox(formObject) {
 
 /* 全选*/
 function checkAll(who, obj){
-	var curCheckBox = document.getElementsByName(who);
-	for(i = 0; i < curCheckBox.length; i++){
-		curCheckBox.item(i).checked = obj.checked;
-	}
+    var curCheckBox = document.getElementsByName(who);
+    for(i = 0; i < curCheckBox.length; i++){
+        curCheckBox.item(i).checked = obj.checked;
+    }
 }
 
 /* add by tony 2007.12.27 */
@@ -1207,6 +1207,22 @@ function formSubmit (url,sTarget){
     document.forms[0].target = sTarget
     document.forms[0].action = url;
     document.forms[0].submit();
+    return true;
+}
+
+/* 打开一个新页面：提交页面第二个表单 add by 胡佳豪 */
+function formSubmit2(url, sTarget) {
+    document.forms[1].target = sTarget
+    document.forms[1].action = url;
+    document.forms[1].submit();
+    return true;
+}
+
+/* 打开一个新页面：提交页面第三个表单 add by 胡佳豪 */
+function formSubmit3(url, sTarget) {
+    document.forms[2].target = sTarget
+    document.forms[2].action = url;
+    document.forms[2].submit();
     return true;
 }
 

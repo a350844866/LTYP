@@ -38,12 +38,13 @@
     <select id="findMovieList" resultType="cn.vworld.bean.MovieInfo">
          <![CDATA[
 
-              SELECT  * FROM movie_info limit #{showpage}, #{lines}
+              select  * from movie_info limit #{showpage}, #{lines}
 
 
         ]]>
 
     </select>
+
 
     <insert id="saveMovie">
         insert into movie_info(
@@ -73,5 +74,22 @@
         #{updateTime, javaType=Date}
         )
     </insert>
+    
+    <insert id="saveMoviexqPath">
+        insert into movie_image(
+          <if test="movieId != null">movie_id,</if>
+          <if test="imageUrl != null">image_url,</if>
+          <if test="imageId != null">image_id</if>
+        )
+        values(
+          <if test="movieId != null">#{movieId},</if>
+          <if test="imageUrl != null">#{imageUrl},</if>
+          <if test="imageId != null">#{imageId}</if>
+        )
+    </insert>
+
+    <delete id="deleteNullPosterUrl">
+        delete from movie_image where image_id=#{imageId}
+    </delete>
 
 </mapper>
