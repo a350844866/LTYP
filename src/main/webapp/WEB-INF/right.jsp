@@ -15,16 +15,13 @@
             </div>
             <div class="wid-content">
                 <ul>
-                    <li><a href="#">Mad Max: Fury Road</a><span><img
-                            src="${ctx}/staticfile/images/hot.png"/></span></li>
-                    <li><a href="http://www.dytt8.net/html/gndy/dyzz/20171010/55256.html">猩球崛起3:终极之战</a><span><img
-                            src="${ctx}/staticfile/images/hot.png"/></span></li>
-                    <li><a href="#">Pound of Flesh</a><span><img
-                            src="${ctx}/staticfile/images/hot.png"/></span></li>
-                    <li><a href="#">Bloodbath Island</a><span><img
-                            src="${ctx}/staticfile/images/hot.png"/></span></li>
-                    <li><a href="#">Pound of Flesh</a><span><img
-                            src="${ctx}/staticfile/images/hot.png"/></span></li>
+                    <c:forEach items="${LinksDate}" var="p" step="1">
+                        <li>
+                                 <span>
+                                     ${p}
+                                   <img src="${ctx}/staticfile/images/hot.png"/>    </span>
+                        </li>
+                    </c:forEach>
                 </ul>
             </div>
         </div>

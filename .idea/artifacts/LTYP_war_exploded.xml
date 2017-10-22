@@ -63,6 +63,7 @@
           <element id="library" level="project" name="Maven: com.google.inject.extensions:guice-multibindings:3.0" />
           <element id="library" level="project" name="Maven: javax.mail:mail:1.4.7" />
           <element id="library" level="project" name="Maven: javax.activation:activation:1.1" />
+          <element id="library" level="project" name="Maven: org.jsoup:jsoup:1.7.3" />
         </element>
       </element>
       <element id="directory" name="META-INF">

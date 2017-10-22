@@ -1,5 +1,4 @@
 package cn.vworld.bean;
-
 public class MovieImage {
     private String imageId;     //图片id
     private String movieId;     //电影id
