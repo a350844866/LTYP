@@ -3,7 +3,6 @@ public class MovieImage {
     private String imageId;     //图片id
     private String movieId;     //电影id
     private String imageUrl;      //图片地址
-
     public String getImageId() {
         return imageId;
     }
