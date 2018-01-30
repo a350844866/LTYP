@@ -65,6 +65,6 @@ where movie_name like "%"#{search}"%" or description like "%"#{search}"%"
     </select>
 
     <update id="updateScore">
-        UPDATE movie_info set avgscore=#{avgScore} where movie_id=#{movieId}
+        UPDATE movie_info set avgscore=#{avgscore} where movie_id=#{movieId}
     </update>
 </mapper>

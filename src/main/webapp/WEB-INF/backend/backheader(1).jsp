@@ -51,7 +51,7 @@
                     </p>
                     <p>
                         <a href="#" class="am-btn am-btn-default"
-                           onclick="formSubmit('${ctx}/backend/search','_self');this.blur();"><i
+                           onclick="getSearchTypeAndSubmit()"><i
                                 class="am-icon-search"></i></a>
                     </p>
                 </form>
@@ -69,5 +69,11 @@
 <script src="${ctx}/staticfile/assets/js/polyfill/respond.min.js"></script>
 <script src="${ctx}/staticfile/assets/js/amazeui.legacy.js"></script>
 <script src="${ctx}/staticfile/assets/js/amazeui.min.js"></script>
+<script type="text/javascript">
+    function getSearchTypeAndSubmit() {
+        var selectedVal = $("#searchType").val();
+        formSubmit('${ctx}/backend/search/' + selectedVal, '_self')
+    }
+</script>
 </body>
 </html>

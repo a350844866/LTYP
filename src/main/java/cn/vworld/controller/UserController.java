@@ -283,6 +283,12 @@ public class UserController {
         StringBuffer buffer = new StringBuffer("用户ID,用户名字,用户状态,创建时间,更新时间\n");
         // 4.遍历list集合,拼接数据
         for (User info : list) {
+            if (info.getUsername() == null) {
+                info.setUsername("Null");
+            }
+            if (info.getState() == null) {
+                info.setState(0);
+            }
             buffer.append(info.getUserId()).append(",").append(info.getUsername()).append(",")
                     .append(info.getState()).append(",").append(a.format(info.getCreateTime())).append(",").append(a.format(info.getUpdateTime())).append("\n");
         }

@@ -6,11 +6,12 @@ import cn.vworld.service.UserService;
 import cn.vworld.service.backservice.BackendMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.stereotype.Service;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.xml.transform.TransformerFactory;
 import java.util.List;
 
 @Controller
@@ -44,7 +45,6 @@ public class SearchController {
             System.out.println(searchMovieNum);
 
             int allPages = searchMovieNum % lines == 0 ? (searchMovieNum / lines) : (searchMovieNum / lines) + 1;
-
             List<MovieInfo> movieInfoList = backendMovieService.findMovieListBykey((page - 1) * lines, lines, key);
 
             System.out.println(movieInfoList.toString());

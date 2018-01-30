@@ -9,9 +9,11 @@ import cn.vworld.service.MovieService;
 import cn.vworld.service.backservice.BackendMovieService;
 
 import cn.vworld.tool.FileUtil;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
@@ -80,7 +82,7 @@ public class BackMovieController extends BaseController{
 
 
     @RequestMapping("/movieList")
-    public String toMovieList(Model model, String showpage){
+    public String toMovieList(Model model, String showpage, String key) {
 
         int  page = 1;
 
@@ -91,14 +93,36 @@ public class BackMovieController extends BaseController{
         }
 
 
-       int allmovies = backendMovieService.findMovieNum();
+        int allmovies = backendMovieService.findMovieNum();
 
-       int   allpages = allmovies % lines == 0 ? (allmovies / lines) : (allmovies / lines)+1;
+        int   allpages = allmovies % lines == 0 ? (allmovies / lines) : (allmovies / lines)+1;
+        List<MovieInfo> movieInfoList = null;
+        if (StringUtils.isEmpty(key)) {
+            movieInfoList = backendMovieService.findMovieList((page - 1) * lines, lines);
+        } else {
+            movieInfoList = backendMovieService.findMovieListBykey((page - 1) * lines, lines, key);
+        }
 
-       List<MovieInfo> movieInfoList = backendMovieService.findMovieList((page-1)*lines, lines);
 
-       // List<MovieInfo> movieList = backendMovieService.findAllMovie();
+        // List<MovieInfo> movieList = backendMovieService.findAllMovie();
 
+        model.addAttribute("movieList", movieInfoList);
+        model.addAttribute("allpages", allpages);
+
+        return "/backend/movieList";
+    }
+
+    @RequestMapping("/orderedByAvgScoreMovieList")
+    public String orderedByAvgScoreMovieList(Model model) {
+        int page = 1;
+
+        int lines = 10;
+
+
+        int allmovies = backendMovieService.findMovieNum();
+
+        int allpages = allmovies % lines == 0 ? (allmovies / lines) : (allmovies / lines) + 1;
+        List<MovieInfo> movieInfoList = backendMovieService.findMovieListOrderByAvgScore((page - 1) * lines, lines);
         model.addAttribute("movieList", movieInfoList);
         model.addAttribute("allpages",allpages);
 
@@ -171,7 +195,7 @@ public class BackMovieController extends BaseController{
             }
 
             try {
-                FileUtil.uploadFile(file.getBytes(), filePath, fileName);
+                FileUtil.uploadFile(file.getBytes(), filePath, fileName + ".jpg");
             } catch (Exception e) {
                 // TODO: handle exception
             }

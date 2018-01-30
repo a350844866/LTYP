@@ -64,7 +64,9 @@ public class BackendMovieServiceImpl implements BackendMovieService {
         movieInfo.setCreateTime(new Date());
 
         movieInfo.setUpdateTime(movieInfo.getCreateTime());
-
+        if (movieInfo.getAvgscore() == null) {
+            movieInfo.setAvgscore(new Double(0));
+        }
         backendMovieMapper.saveMovie(movieInfo);
 
         if (xqpath == null) {
@@ -102,5 +104,10 @@ public class BackendMovieServiceImpl implements BackendMovieService {
     @Override
     public List<MovieInfo> findMovieListBykey(int showpage, int lines, String key) {
         return backendMovieMapper.findMovieListBykey(showpage, lines, key);
+    }
+
+    @Override
+    public List<MovieInfo> findMovieListOrderByAvgScore(int showpage, int lines) {
+        return backendMovieMapper.findMovieListOrderByAvgScore(showpage, lines);
     }
 }

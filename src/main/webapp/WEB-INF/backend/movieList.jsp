@@ -58,43 +58,17 @@
 
             <div class="am-btn-toolbars am-btn-toolbar am-kg am-cf">
                 <ul>
-                    <li>
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">电影分类</option>
-                                <option value="o">电影评分</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li>
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">产品分类</option>
-                                <option value="o">下架</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li style="margin-right: 0;">
-                        <span class="tubiao am-icon-calendar"></span>
-                        <input type="text" class="am-form-field am-input-sm am-input-zm  am-icon-calendar"
-                               placeholder="上映日期" data-am-datepicker="{theme: 'success',}" readonly/>
-                    </li>
-
-
-                    <li style="margin-left: -10px;">
-                        <div class="am-btn-group am-btn-group-xs">
-                            <select data-am-selected="{btnWidth: 90, btnSize: 'sm', btnStyle: 'default'}">
-                                <option value="b">电影分类</option>
-                                <option value="o">下架</option>
-                            </select>
-                        </div>
-                    </li>
-                    <li><input type="text" class="am-form-field am-input-sm am-input-xm" placeholder="关键词搜索"/></li>
-                    <li>
-                        <button type="button" class="am-btn am-radius am-btn-xs am-btn-success"
-                                style="margin-top: -1px;">搜索
-                        </button>
-                    </li>
+                    <form>
+                        <li>
+                            <input name="key" type="text" class="am-form-field am-input-sm am-input-xm"
+                                   placeholder="关键词搜索"/>
+                        </li>
+                        <li>
+                            <button type="button" class="am-btn am-radius am-btn-xs am-btn-success"
+                                    style="margin-top: -1px;" onclick="formSubmit2('movieList','_self');this.blur();">搜索
+                            </button>
+                        </li>
+                    </form>
                 </ul>
             </div>
 
@@ -129,16 +103,16 @@
 
                 <div class="am-btn-group am-btn-group-xs">
 
-                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit2('toview','_self');this.blur();"><span
+                    <a href="#" class="am-btn am-btn-default" onclick="formSubmit3('toview','_self');this.blur();"><span
                             class="am-icon-plus"></span> 查 看</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修 改</a>
+                       onclick="formSubmit3('toupdate','_self');this.blur();"><span class="am-icon-edit"></span> 修 改</a>
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
+                       onclick="formSubmit3('todelete','_self');this.blur();"><span class="am-icon-trash-o"></span>
                         删 除</a>
 
                     <a href="#" class="am-btn am-btn-default"
-                       onclick="formSubmit2('downLoadFilmList','_self');this.blur();"><span
+                       onclick="formSubmit3('downLoadFilmList','_self');this.blur();"><span
                             class="am-icon-download"></span>
                         下 载</a>
 

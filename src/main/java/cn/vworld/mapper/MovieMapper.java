@@ -32,5 +32,5 @@ public interface MovieMapper {
 
     List<MovieInfo> limitTypeSearch(@Param("typeId") String typeId, @Param("page") int page, @Param("resultPageMovie") Integer resultPageMovie);
 
-    void updateScore(@Param("movieId") String movieId, @Param("avgScore") Double avgScore);
+    void updateScore(@Param("movieId") String movieId, @Param("avgscore") Double avgscore);
 }

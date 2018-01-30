@@ -7,7 +7,7 @@ spring:
 #    url: jdbc:mysql://176.20.94.63:3306/ltyp
     url: jdbc:mysql://localhost:3306/ltyp
     username: root
-    password: root
+    password: ltl950119
   mvc:
     view:
       prefix: /WEB-INF/

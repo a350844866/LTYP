@@ -76,11 +76,13 @@ public class UserServiceImpl implements UserService{
         user.setState(0);
         user.setBan(0);
         user.setPassword(Md5HashPassword.getMd5Hash(user.getPassword(), user.getUsername()));
+        user.setUpdateTime(user.getCreateTime());
         userMapper.saveUser(user);
         roleUserMapper.saveNormalRole(user.getUserId());
         userInfo.setUserInfoId(user.getUserId());
         userInfo.setNickname(user.getUsername());
         userInfo.setCreateTime(new Date());
+        userInfo.setUpdateTime(userInfo.getCreateTime());
         userInfoMapper.saveUserInfo(userInfo);
 
     }

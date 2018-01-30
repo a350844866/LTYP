@@ -44,4 +44,13 @@ public interface BackendMovieService {
     int findMovieByKey(String key);
 
     List<MovieInfo> findMovieListBykey(int showpage, int lines, String key);
+
+    /**
+     * 根据平均分进行排序的电影集合
+     *
+     * @param i
+     * @param lines
+     * @return
+     */
+    List<MovieInfo> findMovieListOrderByAvgScore(int i, int lines);
 }

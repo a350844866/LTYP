@@ -31,13 +31,14 @@ public class BackDoMovieController {
 
     /**
      * 根据电影id查询电影详情
+     *
      * @param model
      * @return
      */
     @RequestMapping("/toview")
-    public String toView(String movieId, Model model){
+    public String toView(String movieId, Model model) {
 
-        if(movieId == null){
+        if (movieId == null) {
             return "redirect:/backend/movieList";
         }
 
@@ -137,7 +138,7 @@ public class BackDoMovieController {
             }
 
             try {
-                FileUtil.uploadFile(file.getBytes(), filePath, fileName);
+                FileUtil.uploadFile(file.getBytes(), filePath, fileName + ".jpg");
             } catch (Exception e) {
                 // TODO: handle exception
             }

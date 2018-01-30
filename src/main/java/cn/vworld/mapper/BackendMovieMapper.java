@@ -48,4 +48,13 @@ public interface BackendMovieMapper {
     int findMovieByKey(String key);
 
     List<MovieInfo> findMovieListBykey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
+
+    /**
+     * 根据平均分进行排序的电影集合
+     *
+     * @param showpage
+     * @param lines
+     * @return
+     */
+    List<MovieInfo> findMovieListOrderByAvgScore(@Param("showpage") int showpage, @Param("lines") int lines);
 }

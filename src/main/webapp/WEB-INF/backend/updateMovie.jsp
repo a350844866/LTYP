@@ -98,7 +98,11 @@
                     <div class="zuo">电影海报：</div>
                     <div class="you"><img id="doc-ipt-file-1" src="${ctx}/${movieInfo.poster}"
                                           style="width: 230px;height: 150px">
-                        <input type="file" id="doc-ipt-file-1" name="file" value="${movieInfo.poster}"></div>
+                        <input type="file" id="doc-ipt-file-1" name="file" value="${movieInfo.poster}">
+                        <input type="text" name="avgscore" class="am-input-sm" id="doc-ipt-email-1"
+                               value="${movieInfo.avgscore}" hidden="hidden">
+
+                    </div>
                 </div>
                 <div class="am-form-group am-cf">
                     <div class="zuo">详情页1：</div>

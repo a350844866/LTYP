@@ -66,6 +66,7 @@
         <if test="poster != null">poster,</if>
         <if test="playtime != null">playtime,</if>
         <if test="country != null">country,</if>
+        <if test="avgscore!=null">avgscore,</if>
         <if test="createTime != null">create_time,</if>
         <if test="updateTime != null">update_time</if>
         )
@@ -79,6 +80,7 @@
         <if test="poster != null">#{poster},</if>
         <if test="playtime != null">#{playtime},</if>
         <if test="country != null">#{country},</if>
+        <if test="avgscore!=null">#{avgscore},</if>
         #{createTime, javaType=Date},
         #{updateTime, javaType=Date}
         )
@@ -107,4 +109,8 @@ where movie_name like "%"#{key}"%"
       or director like "%"#{key}"%" or actor like "%"#{key}"%" or country like "%"#{key}"%"
     </select>
 
+
+    <select id="findMovieListOrderByAvgScore" resultType="cn.vworld.bean.MovieInfo">
+            SELECT  * FROM movie_info order by avgscore desc limit #{showpage}, #{lines}
+    </select>
 </mapper>
