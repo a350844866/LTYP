@@ -3,7 +3,7 @@ package cn.vworld.controller.backcontroller;
 import cn.vworld.bean.EchartDate;
 
 import cn.vworld.bean.returnEchartDate;
-import cn.vworld.tool.Uitil;
+import cn.vworld.tool.EcharUtils;
 import cn.vworld.utils.GetHtml;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,8 +32,8 @@ public class IndexController {
 
        for(int i = 0; i < echartDateList.size(); i++){
            xAxisDate.add(echartDateList.get(i).getMovieName());
-           seriesData1.add(Uitil.SlipString(echartDateList.get(i).getDayboxoffice()));
-           seriesData2.add(Uitil.SlipString(echartDateList.get(i).getAllboxoffice()));
+           seriesData1.add(EcharUtils.SplitString(echartDateList.get(i).getDayboxoffice()));
+           seriesData2.add(EcharUtils.SplitString(echartDateList.get(i).getAllboxoffice()));
        }
        titleData = echartDateList.get(0).getMovieTile();
        subtextData = echartDateList.get(1).getMovieTile();
