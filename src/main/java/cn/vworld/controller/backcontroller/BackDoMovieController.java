@@ -16,6 +16,7 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.List;
 import java.util.UUID;
 
@@ -28,6 +29,9 @@ public class BackDoMovieController {
 
     @Autowired
     private BackendMovieService backendMovieService;
+
+    @Autowired
+    private MovieService movieService;
 
     /**
      * 根据电影id查询电影详情
@@ -98,9 +102,7 @@ public class BackDoMovieController {
     @RequestMapping("update")
     public String UpdateMovietoDb(MovieInfo movieInfo, MovieImage movieImage, HttpServletRequest request) {
 
-        backDoMovieService.deleteMovieInfoByMovieId(movieInfo.getMovieId());
 
-        backDoMovieService.deleteMovieImageByMovieId(movieInfo.getMovieId());
 
         List<MultipartFile> files = ((MultipartHttpServletRequest) request).getFiles("file");
         MultipartFile file = null;
@@ -109,6 +111,26 @@ public class BackDoMovieController {
         String contentType = null;
         String fileName = null;
         String filePath = request.getSession().getServletContext().getRealPath("/staticfile/images/");
+        //删除原来的图片
+        //先删除原来的海报
+        String[] strs = movieInfo.getPoster().split("/");
+        File oldPosterFile = new File(filePath + strs[strs.length - 1]);
+        if (oldPosterFile.exists()) {
+            oldPosterFile.delete();
+        }
+        //删除原来的两张详情页的图片
+        List<MovieImage> oldImages = movieService.findMovieImageByMovieInfoId(movieInfo.getMovieId());
+        oldImages.forEach(n -> {
+            String[] urls = n.getImageUrl().split("/");
+            File oldImage = new File(filePath + urls[urls.length - 1]);
+            if (oldImage.exists()) {
+                oldImage.delete();
+            }
+        });
+
+
+        backDoMovieService.deleteMovieImageByMovieId(movieInfo.getMovieId());
+        backDoMovieService.deleteMovieInfoByMovieId(movieInfo.getMovieId());
 
 
         //服务器文件路径设置
@@ -143,6 +165,7 @@ public class BackDoMovieController {
                 // TODO: handle exception
             }
         }
+
 
         backendMovieService.saveMovie(movieInfo, xqPath);
 
