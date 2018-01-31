@@ -64,4 +64,10 @@ public interface UserMapper {
 
     User checkEmailExist(String email);
 
+    /**
+     * 查找最近一周
+     *
+     * @return
+     */
+    int selectRecentRegisterUser();
 }

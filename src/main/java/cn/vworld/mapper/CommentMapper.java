@@ -8,4 +8,8 @@ public interface CommentMapper {
     List<Comment> findCommentsByMovie(String movieInfoId);
 
     void insertComment(Comment comment);
+
+    int selectCommentCount();
+
+    int selectRecentCommentCount();
 }

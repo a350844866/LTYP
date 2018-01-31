@@ -179,4 +179,7 @@ where username=#{username} and password = #{password}
         where email=#{email}
     </select>
 
+    <select id="selectRecentRegisterUser" resultType="int">
+        SELECT COUNT(*) FROM user where TO_DAYS(NOW()) - TO_DAYS(create_time) &lt; 7
+    </select>
 </mapper>

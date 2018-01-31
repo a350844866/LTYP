@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="cn.vworld.mapper.TypeMapper">
+
+    <select id="getTypeNameAndCountMap" resultType="TypeAndCount">
+        SELECT
+        ty.type_name,
+        t.count
+        FROM type ty
+        JOIN (SELECT
+        type_id,
+        count(movie_id) AS count
+        FROM movie_type
+        GROUP BY type_id) t ON t.type_id = ty.type_id
+    </select>
+    <!--<resultMap id="NameAndCountMap" type="java.util.HashMap">-->
+    <!--<result column="type_name" property="typeName"/>-->
+    <!--<result column="count" property="count"/>-->
+    <!--</resultMap>-->
+
+
+</mapper>

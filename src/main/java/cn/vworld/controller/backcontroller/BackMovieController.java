@@ -3,13 +3,18 @@ package cn.vworld.controller.backcontroller;
 import ch.qos.logback.core.net.SyslogOutputStream;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
+import cn.vworld.bean.TypeAndCount;
 import cn.vworld.bean.User;
 import cn.vworld.controller.BaseController;
+import cn.vworld.service.CommentService;
 import cn.vworld.service.MovieService;
+import cn.vworld.service.TypeService;
+import cn.vworld.service.UserService;
 import cn.vworld.service.backservice.BackendMovieService;
 
 import cn.vworld.tool.FileUtil;
 import com.sun.org.apache.xpath.internal.operations.Mod;
+import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -24,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
+import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/backend")
@@ -31,6 +37,15 @@ public class BackMovieController extends BaseController{
 
     @Autowired
     private BackendMovieService backendMovieService;
+
+    @Autowired
+    private CommentService commentService;
+
+    @Autowired
+    private UserService userService;
+
+    @Autowired
+    private TypeService typeService;
 
     /**
      * 跳转到后台主页
@@ -52,25 +67,28 @@ public class BackMovieController extends BaseController{
 
         List<User> userList = backendMovieService.findUserByCommentNum();
 
+        int commentCount = commentService.getCommentCount();
+
+        int recentCommentCount = commentService.getRecentCommentCount();
+
+        int recentRegistUser = userService.findRecentRegisterUser();
+
+
         model.addAttribute("movieNum", movieNum);
         model.addAttribute("movieTypeNum", movieTypeNum);
         model.addAttribute("userNum", userNum);
-
+        model.addAttribute("commentCount", commentCount);
+        model.addAttribute("recentCommentCount", recentCommentCount);
         model.addAttribute("movieInfoList", movieInfoList);
         model.addAttribute("movieTypeList", movieTypeList);
         model.addAttribute("userList", userList);
+        model.addAttribute("recentRegisterUser", recentRegistUser);
 
-
-        Map<String,String> map = new HashMap<>();
-        map.put("剧情",(int) (Math.random()*35)+10+"");
-        map.put("战争",(int) (Math.random()*35)+10+"");
-        map.put("动画",(int) (Math.random()*35)+10+"");
-        map.put("爱情",(int) (Math.random()*35)+10+"");
-        map.put("科幻",(int) (Math.random()*35)+10+"");
-        map.put("动作",(int) (Math.random()*35)+10+"");
-        map.put("犯罪",(int) (Math.random()*35)+10+"");
-        map.put("恐怖",(int) (Math.random()*35)+10+"");
-        map.put("励志",(int) (Math.random()*35)+10+"");
+        List<TypeAndCount> typeAndCount = typeService.getTypeNameAndCountMap();
+        Map<String, Integer> map = new HashMap<>();
+        typeAndCount.forEach(n -> {
+            map.put(n.getTypeName(), n.getCount());
+        });
         model.addAttribute("map", map);
         return "/backend/index";
     }

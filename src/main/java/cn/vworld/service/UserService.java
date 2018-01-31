@@ -159,4 +159,10 @@ public interface UserService {
      */
     User checkEmailExist(String email);
 
+    /**
+     * 查询最近一周新注册的用户数量
+     *
+     * @return
+     */
+    int findRecentRegisterUser();
 }

@@ -1,9 +1,10 @@
-package cn.vworld.service;
+package cn.vworld.service.impl;
 
 import cn.vworld.bean.*;
 import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
+import cn.vworld.service.UserService;
 import cn.vworld.tool.Md5HashPassword;
 import cn.vworld.utils.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService{
+public class UserServiceImpl implements UserService {
     @Autowired
     private UserMapper userMapper;
 
@@ -59,6 +60,11 @@ public class UserServiceImpl implements UserService{
     @Override
     public User checkEmailExist(String email) {
         return userMapper.checkEmailExist(email);
+    }
+
+    @Override
+    public int findRecentRegisterUser() {
+        return userMapper.selectRecentRegisterUser();
     }
 
     @Override

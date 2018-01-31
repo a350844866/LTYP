@@ -77,7 +77,8 @@ public class GetHtml {
 
     //解析网页
     public static List<EchartDate> ParseMovieData(HttpServletRequest request) throws Exception {
-        String url = "http://movie.mtime.com/boxoffice/#US/weekend";
+//        String url = "http://movie.mtime.com/boxoffice/#US/weekend";
+        String url = "http://movie.mtime.com/boxoffice/#CN/daily";
         String filePath1 = request.getSession().getServletContext().getRealPath("html/");
         Get_Url(url, request);
         String[] movieName = new String[11];

@@ -1,14 +1,15 @@
-package cn.vworld.service;
+package cn.vworld.service.impl;
 
 import cn.vworld.bean.UserInfo;
 import cn.vworld.mapper.UserInfoMapper;
+import cn.vworld.service.UserInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @Transactional
-public class UserInfoServiceImpl implements UserInfoService{
+public class UserInfoServiceImpl implements UserInfoService {
 
     @Autowired
     private UserInfoMapper userInfoMapper;

@@ -1,4 +1,4 @@
-package cn.vworld.service;
+package cn.vworld.service.impl;
 
 import cn.vworld.bean.Comment;
 import cn.vworld.bean.MovieImage;
@@ -8,6 +8,7 @@ import cn.vworld.mapper.CommentMapper;
 import cn.vworld.mapper.MovieImageMapper;
 import cn.vworld.mapper.MovieMapper;
 import cn.vworld.mapper.ScoreMapper;
+import cn.vworld.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,7 +20,7 @@ import java.util.UUID;
 
 @Service
 @Transactional
-public class MovieServiceImpl implements MovieService{
+public class MovieServiceImpl implements MovieService {
     @Autowired
     private MovieMapper movieMapper;
 

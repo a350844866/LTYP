@@ -40,7 +40,7 @@
         var option1 = {
             title: {
 
-                text: "2017电影不同电影类型的票房",
+                text: "乐途影评电影类型图表",
 
                 x: 'center'
             },
@@ -51,7 +51,7 @@
             legend: {
                 x: 'center',
                 y: 'bottom',
-                data: ['剧情', '战争', '动画', '爱情', '科幻', '动作', '犯罪', '恐怖', '励志']
+                data: ['剧情', '战争', '动画', '爱情', '科幻', '动作', '犯罪', '恐怖', '励志', '喜剧']
             },
             toolbox: {
                 show: true,
@@ -155,10 +155,10 @@
                         <dl>
                             <dt>全网电影总量： ${movieNum}</dt>
                             <dt>全网电影种类： ${movieTypeNum}</dt>
-                            <dt>全网评论总量： 10000</dt>
+                            <dt>全网评论总量： ${commentCount}</dt>
                         </dl>
                         <ul>
-                            <h2>100</h2>
+                            <h2>${recentCommentCount}</h2>
                             <li>全网更新评论量</li>
                         </ul>
                     </div>
@@ -167,7 +167,7 @@
                             <dt>全网用户： ${userNum}</dt>
                         </dl>
                         <ul>
-                            <h2>10</h2>
+                            <h2>${recentRegisterUser}</h2>
                             <li>新注册用户</li>
                         </ul>
                     </div>

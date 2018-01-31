@@ -1,10 +1,11 @@
-package cn.vworld.service.backservice;
+package cn.vworld.service.backservice.impl;
 
 import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.mapper.BackendMovieMapper;
+import cn.vworld.service.backservice.BackendMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

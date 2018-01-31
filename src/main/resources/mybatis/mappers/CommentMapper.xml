@@ -36,5 +36,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         )
     </insert>
 
+    <select id="selectCommentCount" resultType="int">
+        SELECT count(*) FROM comment
+    </select>
+
+    <select id="selectRecentCommentCount" resultType="int">
+        SELECT COUNT(*) FROM comment WHERE TO_DAYS(NOW()) - TO_DAYS(create_time) &lt; 7
+    </select>
+
 
 </mapper>
