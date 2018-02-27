@@ -4,9 +4,15 @@ import cn.vworld.bean.Type;
 import cn.vworld.bean.TypeAndCount;
 import cn.vworld.mapper.TypeMapper;
 import cn.vworld.service.TypeService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
 
@@ -19,6 +25,11 @@ public class TypeServiceImpl implements TypeService {
 
     @Autowired
     private TypeMapper typeMapper;
+
+    @Autowired
+    private JedisPool jedisPool;
+
+    private static ObjectMapper objectMapper = new ObjectMapper();
 
     @Override
     public List<TypeAndCount> getTypeNameAndCountMap() {
@@ -43,6 +54,24 @@ public class TypeServiceImpl implements TypeService {
      */
     @Override
     public List<Type> getAllType() {
+        Jedis jedis = jedisPool.getResource();
+        String alltype = jedis.get("LTYP_ALLTYPE");
+        if (alltype != null) {
+            try {
+                List<Type> typeList = Arrays.asList(objectMapper.readValue(alltype, Type[].class));
+                return typeList;
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        try {
+            List<Type> typeList = typeMapper.selectAllType();
+            String json = objectMapper.writeValueAsString(typeList);
+            jedis.set("LTYP_ALLTYPE", json);
+            return typeList;
+        } catch (JsonProcessingException e) {
+            e.printStackTrace();
+        }
         return typeMapper.selectAllType();
     }
 }

@@ -5,6 +5,7 @@ import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.User;
 import cn.vworld.service.MovieService;
+import cn.vworld.service.TypeService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,8 +20,6 @@ import java.util.*;
 @RequestMapping("/movie")
 @Transactional
 public class MovieController {
-    @Autowired
-    private MovieService movieService;
     private Integer page = 1; //当前页数
     private Integer pages = 0;//总共有多少页
     private Integer pageMovie = 12;//每页显示的电影数
@@ -28,6 +27,12 @@ public class MovieController {
     private Integer updateNum = 3;//右侧最近更新电影的数量
     private Integer resultPageMovie = 5;//在结果页每页显示的电影数
     public static HashMap<User, List<String>> map = new HashMap<User, List<String>>();
+
+    @Autowired
+    private MovieService movieService;
+
+    @Autowired
+    private TypeService typeService;
     /**
      * 展现首页 默认页码为1
      *
@@ -49,6 +54,7 @@ public class MovieController {
         model.addAttribute("movieList3", movieList3);
         //右边的最近更新电影
 
+        model.addAttribute("allType", typeService.getAllType());
         List<MovieInfo> newUpdate = movieService.findNewUpdateMovie(updateNum);
         session.setAttribute("newUpdate", newUpdate);
         return "index";

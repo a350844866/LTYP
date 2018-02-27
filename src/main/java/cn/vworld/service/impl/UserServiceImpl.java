@@ -162,6 +162,7 @@ public class UserServiceImpl implements UserService {
         userMapper.saveUser(user);
         userInfo.setUserInfoId(user.getUserId());
         userInfo.setCreateTime(new Date());
+        userInfo.setUpdateTime(userInfo.getCreateTime());
         userInfo.setNickname(user.getUsername());
         userInfoMapper.saveUserInfo(userInfo);
         userMapper.saveUserRole(user.getUserId(), roleId);

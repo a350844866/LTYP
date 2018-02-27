@@ -291,6 +291,9 @@ public class UserController {
             if (info.getState() == null) {
                 info.setState(0);
             }
+            if (info.getUsername() == null) {
+                info.setUsername("Null");
+            }
             buffer.append(info.getUserId()).append(",").append(info.getUsername()).append(",")
                     .append(info.getState()).append(",").append(a.format(info.getCreateTime())).append(",").append(a.format(info.getUpdateTime())).append("\n");
         }

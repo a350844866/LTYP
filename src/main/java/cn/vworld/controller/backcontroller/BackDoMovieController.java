@@ -18,6 +18,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisCluster;
+import redis.clients.jedis.JedisPool;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -43,6 +46,12 @@ public class BackDoMovieController {
 
     @Autowired
     private TypeService typeService;
+
+    @Autowired
+    private JedisPool jedisPool;
+
+
+
 
     /**
      * 根据电影id查询电影详情
@@ -123,7 +132,7 @@ public class BackDoMovieController {
     /**
      * 修改电影之后的入库操作
      */
-    @RequestMapping("update")
+    @RequestMapping("/update")
     public String UpdateMovieToDB(MovieInfo movieInfo, HttpServletRequest request, int[] typeId) {
 
 

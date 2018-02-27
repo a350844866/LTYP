@@ -95,12 +95,9 @@ public class BackendMovieServiceImpl implements BackendMovieService {
             if (movieImage.getImageUrl() == null) {
                 backendMovieMapper.deleteNullPosterUrl(movieImage.getImageId());
             }
-
-            for (int t : typeId) {
-                movieTypeMapper.insert(movieId, t);
-            }
-
-
+        }
+        for (int t : typeId) {
+            movieTypeMapper.insert(movieId, t);
         }
 
 

@@ -12,6 +12,16 @@ spring:
     view:
       prefix: /WEB-INF/
       suffix: .jsp
+  redis:
+    host: 192.168.10.128
+    port: 6379
+    pool:
+      max-active: 8
+      max-wait: -1
+      max-idle: 8
+      min-idle: 0
+    timeout: 0
+    password:
 mybatis:
   config-location: classpath:/mybatis/mybatis-config.xml
 #  cn.vworld.mapper-locations: classpath:/mybatis/mappers/*.xml
