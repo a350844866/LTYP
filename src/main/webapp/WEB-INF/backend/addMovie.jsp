@@ -115,13 +115,20 @@
                     <div class="am-form-group am-cf">
                         <div class="zuo">电影来源地：</div>
                         <div class="you" style="height: 45px;">
-                            <input type="text" name="country" id="doc-ipt-file-1" placeholder="请选择上映国家"></input>
+                            <input type="text" name="country" id="doc-ipt-file-1" placeholder="请输入上映国家"></input>
+                        </div>
+                    </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">电影类型：</div>
+                        <div class="you" style="height: 45px;">
+                            <c:forEach var="type" items="${typeList}">
+                                <input type="checkbox" name="typeId" value="${type.typeId}">${type.typeName}</input>
+                            </c:forEach>
                         </div>
                     </div>
                     <div class="am-form-group am-cf">
                         <div class="you" style="margin-left: 11%;">
                             <button type="submit" class="am-btn am-btn-success am-radius">发布并关闭窗口</button>&nbsp;  &raquo; &nbsp; <button type="submit" class="am-btn am-btn-secondary am-radius">发布并继续发布</button>
-
                         </div>
                     </div>
                 </form>

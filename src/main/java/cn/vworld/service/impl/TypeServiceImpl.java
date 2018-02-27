@@ -24,4 +24,25 @@ public class TypeServiceImpl implements TypeService {
     public List<TypeAndCount> getTypeNameAndCountMap() {
         return typeMapper.getTypeNameAndCountMap();
     }
+
+    /**
+     * 根据类型id来查询类型名称
+     *
+     * @param typeId
+     * @return
+     */
+    @Override
+    public String selectTypeNameByTypeId(String typeId) {
+        return typeMapper.selectTypeNameByTypeId(typeId);
+    }
+
+    /**
+     * 查找所有类型
+     *
+     * @return
+     */
+    @Override
+    public List<Type> getAllType() {
+        return typeMapper.selectAllType();
+    }
 }

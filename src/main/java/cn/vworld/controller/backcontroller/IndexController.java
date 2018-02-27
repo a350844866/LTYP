@@ -6,6 +6,7 @@ import cn.vworld.bean.returnEchartDate;
 import cn.vworld.tool.EcharUtils;
 import cn.vworld.utils.GetHtml;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -15,6 +16,7 @@ import java.util.List;
 
 @Controller
 @RequestMapping("/backend")
+@Transactional
 public class IndexController {
 
    @RequestMapping("/getEcherts")
@@ -39,9 +41,9 @@ public class IndexController {
        subtextData = echartDateList.get(1).getMovieTile();
        Alltoxoffice = echartDateList.get(2).getMovieTile();
 
-        returnEchartDate Eachartdata = new returnEchartDate(titleData,subtextData,Alltoxoffice,xAxisDate,seriesData1,seriesData2);
+       returnEchartDate echartDate = new returnEchartDate(titleData, subtextData, Alltoxoffice, xAxisDate, seriesData1, seriesData2);
 
-        return Eachartdata;
+       return echartDate;
 
    }
 }

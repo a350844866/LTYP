@@ -4,6 +4,7 @@ package cn.vworld.controller;
 import cn.vworld.bean.EchartDate;
 import cn.vworld.tool.GetHtml;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Controller
+@Transactional
 public class rightController {
     @RequestMapping("/right")
     public String RightData(Model model, HttpServletRequest request, HttpSession session) throws Exception {

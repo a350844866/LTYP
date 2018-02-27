@@ -3,6 +3,7 @@ package cn.vworld.service.backservice.impl;
 import cn.vworld.bean.MovieImage;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.mapper.BackDoMovieMapper;
+import cn.vworld.mapper.TypeMapper;
 import cn.vworld.service.backservice.BackDoMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -16,6 +17,7 @@ public class BackDoMovieServiceImpl implements BackDoMovieService {
 
     @Autowired
     private BackDoMovieMapper backDoMovieMapper;
+
 
     @Override
     public MovieInfo findMovieInfoByMovieId(String movieId) {

@@ -17,6 +17,7 @@ import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.apache.commons.collections.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,6 +34,7 @@ import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/backend")
+@Transactional
 public class BackMovieController extends BaseController{
 
     @Autowired
@@ -153,9 +155,9 @@ public class BackMovieController extends BaseController{
      * @return
      */
     @RequestMapping("/addMovie")
-    public String toAddMovie(){
-
-
+    public String toAddMovie(Model model) {
+        List<Type> typeList = typeService.getAllType();
+        model.addAttribute("typeList", typeList);
         return "/backend/addMovie";
     }
 
@@ -165,7 +167,7 @@ public class BackMovieController extends BaseController{
      * @return
      */
     @RequestMapping("/toMovieList")
-    public String toMovieList(MovieInfo movieInfo, HttpServletRequest request) {
+    public String toMovieList(MovieInfo movieInfo, HttpServletRequest request, int[] typeId) {
 
         if ("".equals(movieInfo.getMovieName()) && "".equals(movieInfo.getShowTime())
                 && "".equals(movieInfo.getDescription()) && "".equals(movieInfo.getDirector())
@@ -222,7 +224,7 @@ public class BackMovieController extends BaseController{
         //backendMovieService.saveMovieING(xqPath);//插入详情页面
 
 
-        backendMovieService.saveMovie(movieInfo, xqPath);
+        backendMovieService.saveMovie(movieInfo, xqPath, typeId);
 
         return "redirect:/backend/movieList";
     }

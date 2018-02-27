@@ -8,6 +8,7 @@ import cn.vworld.service.MovieService;
 import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,6 +17,7 @@ import java.util.*;
 
 @Controller
 @RequestMapping("/movie")
+@Transactional
 public class MovieController {
     @Autowired
     private MovieService movieService;
@@ -76,7 +78,7 @@ public class MovieController {
     }
 
     @RequestMapping("/single")
-    public String tosingle(String movieId, Model model) {
+    public String toSingle(String movieId, Model model) {
         MovieInfo movieInfo = movieService.findMovieInfoByMovieInfoId(movieId);
         model.addAttribute("movieInfo", movieInfo);
         List<MovieImage> imageList = movieService.findMovieImageByMovieInfoId(movieId);

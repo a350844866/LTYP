@@ -17,8 +17,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 
-import static org.apache.shiro.web.filter.mgt.DefaultFilter.user;
-
 @Service
 @Transactional
 public class UserServiceImpl implements UserService {
@@ -54,7 +52,7 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> findUserListByKey(int showpage, int lines, String key) {
-        return userMapper.findfindUserListByKey(showpage, lines, key);
+        return userMapper.findUserListByKey(showpage, lines, key);
     }
 
     @Override

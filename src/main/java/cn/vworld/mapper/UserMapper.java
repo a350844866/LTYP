@@ -8,16 +8,40 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface UserMapper {
-
+    /**
+     * 根据登录名和密码查找用户
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     User findUserByU_P(@Param("username") String username,@Param("password") String password);
 
-    User findUserByU_P_simple(@Param("username") String username,@Param("password") String password);
+    /**
+     * 根据用户名和密码查找简单的用户对象
+     * @param username
+     * @param password
+     * @return
+     */
+    User findUserByU_P_simple(@Param("username") String username, @Param("password") String password);
 
-
+    /**
+     * 激活用户
+     * @param userId
+     */
     void updateState(String userId);
 
+    /**
+     * 更改用户禁用
+     * @param userId
+     * @param ban
+     */
     void updateBan(@Param("userId") String userId, @Param("ban") Integer ban);
 
+    /**
+     * 保存用户
+     * @param user
+     */
     void saveUser(User user);
 
     //修改用户密码
@@ -42,15 +66,26 @@ public interface UserMapper {
     void saveUserType(@Param("userId") String userId, @Param("userId") String typeId);
     //删除用户-电影类型关联表数据
     void deleteUserTypes(String userId);
-  
+
+    /**
+     * 判断用户名字是否存在
+     * @param username
+     * @return
+     */
     User checkUsername(String username);
 
     //添加管理员时候的职位设定
     void saveUserRole(@Param("userId") String userId, @Param("roleId") String roleId);
 
+    /**
+     * 通过用户名模糊查找用户
+     * @param key
+     * @return
+     */
     int findUserNumByKey(String key);
 
-    List<User> findfindUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
+
+    List<User> findUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 
     int findAllUserNum();
 

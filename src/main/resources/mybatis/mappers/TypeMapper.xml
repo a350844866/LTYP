@@ -21,5 +21,12 @@
     <!--<result column="count" property="count"/>-->
     <!--</resultMap>-->
 
+    <select id="selectTypeNameByTypeId" resultType="String">
+        select type_name from type where type_id=#{typeId}
+    </select>
+
+    <select id="selectAllType" resultType="Type">
+        select * from type
+    </select>
 
 </mapper>

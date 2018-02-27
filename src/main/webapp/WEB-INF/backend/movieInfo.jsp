@@ -121,6 +121,12 @@
                             <input type="text" name="country" id="doc-ipt-file-1" value="${movieInfo.country}" readonly="readonly"></input>
                         </div>
                     </div>
+                    <div class="am-form-group am-cf">
+                        <div class="zuo">电影类型：</div>
+                        <div class="you" style="height: 45px;">
+                            ${typeNames}
+                        </div>
+                    </div>
                 </form>
             </div>
 

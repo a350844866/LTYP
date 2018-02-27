@@ -5,6 +5,8 @@ import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.User;
 import cn.vworld.mapper.BackendMovieMapper;
+import cn.vworld.mapper.MovieTypeMapper;
+import cn.vworld.mapper.TypeMapper;
 import cn.vworld.service.backservice.BackendMovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +22,9 @@ public class BackendMovieServiceImpl implements BackendMovieService {
 
     @Autowired
     private BackendMovieMapper backendMovieMapper;
+
+    @Autowired
+    private MovieTypeMapper movieTypeMapper;
 
     @Override
     public Integer findMovieNum() {
@@ -57,7 +62,7 @@ public class BackendMovieServiceImpl implements BackendMovieService {
     }
 
     @Override
-    public void saveMovie(MovieInfo movieInfo, String[] xqpath) {
+    public void saveMovie(MovieInfo movieInfo, String[] xqpath, int[] typeId) {
         String movieId = UUID.randomUUID().toString();
 
         movieInfo.setMovieId(movieId);
@@ -89,6 +94,10 @@ public class BackendMovieServiceImpl implements BackendMovieService {
 
             if (movieImage.getImageUrl() == null) {
                 backendMovieMapper.deleteNullPosterUrl(movieImage.getImageId());
+            }
+
+            for (int t : typeId) {
+                movieTypeMapper.insert(movieId, t);
             }
 
 

@@ -99,9 +99,6 @@
                     <div class="you"><img id="doc-ipt-file-1" src="${ctx}/${movieInfo.poster}"
                                           style="width: 230px;height: 150px">
                         <input type="file" id="doc-ipt-file-1" name="file" value="${movieInfo.poster}">
-                        <input type="text" name="avgscore" class="am-input-sm" id="doc-ipt-email-1"
-                               value="${movieInfo.avgscore}" hidden="hidden">
-
                     </div>
                 </div>
                 <div class="am-form-group am-cf">
@@ -132,13 +129,26 @@
                     </div>
                 </div>
                 <div class="am-form-group am-cf">
+                    <div class="zuo">电影类型：</div>
+                    <div class="you" style="height: 45px;">
+                        <c:forEach var="type" items="${typeList}">
+                            <input type="checkbox" name="typeId" value="${type.typeId}"
+                                    <c:forEach var="id" items="${idList}">
+                                        <c:if test="${id==type.typeId}">
+                                            checked="checked"
+                                        </c:if>
+                                    </c:forEach>
+                            >${type.typeName}</input>
+                        </c:forEach>
+                    </div>
+                </div>
+                <div class="am-form-group am-cf">
                     <div class="you" style="margin-left: 11%;">
                         <a href="#" class="am-btn am-btn-success am-radius"
                            onclick="formSubmit2('update','_self');this.blur();">更新</a>&nbsp; &raquo; &nbsp;
                         <a href="#" class="am-btn am-btn-secondary am-radius"
                            onclick="window.history.go(-1);this.blur();">
                         返回</a>
-
                     </div>
                 </div>
             </form>
@@ -158,4 +168,21 @@
 
 
 </body>
+<%--<script type="text/javascript">--%>
+<%--$(function() {//页面加载的时候触发--%>
+<%--var boxObj = $("input:checkbox[name='typeId']");  //获取所有的复选框--%>
+<%--var typeids = ${typeids}; //用el表达式获取在控制层存放的复选框的值为字符串类型--%>
+<%--var target = typeids.split(','); //去掉它们之间的分割符“，”--%>
+<%--for(i=0;i<boxObj.length;i++){--%>
+<%--for(j=0;j<target.length;j++){--%>
+<%--if(boxObj[i].value() == target[j])  //如果值与修改前的值相等--%>
+<%--{--%>
+<%--alert(boxObj[i].value());--%>
+<%--boxObj[i].checked= checked;--%>
+<%--break;--%>
+<%--}--%>
+<%--}--%>
+<%--}--%>
+<%--})--%>
+<%--</script>--%>
 </html>
