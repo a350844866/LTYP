@@ -58,6 +58,10 @@ public class BackendMovieServiceImpl implements BackendMovieService {
             }
         } catch (IOException e) {
             e.printStackTrace();
+        } finally {
+            if (jedis != null) {
+                jedisPool.returnResource(jedis);
+            }
         }
         return backendMovieMapper.findMovieTypeNum();
     }

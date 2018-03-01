@@ -18,7 +18,7 @@ spring:
     pool:
       max-active: -1
       max-wait: -1
-      max-idle: -1
+      max-idle: 0
       min-idle: 0
     timeout: 0
     password:

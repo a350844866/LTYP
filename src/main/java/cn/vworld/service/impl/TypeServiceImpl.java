@@ -62,6 +62,10 @@ public class TypeServiceImpl implements TypeService {
                 return typeList;
             } catch (IOException e) {
                 e.printStackTrace();
+            } finally {
+                if (jedis != null) {
+                    jedisPool.returnResource(jedis);
+                }
             }
         }
         try {
@@ -71,6 +75,10 @@ public class TypeServiceImpl implements TypeService {
             return typeList;
         } catch (JsonProcessingException e) {
             e.printStackTrace();
+        } finally {
+            if (jedis != null) {
+                jedisPool.returnResource(jedis);
+            }
         }
         return typeMapper.selectAllType();
     }
