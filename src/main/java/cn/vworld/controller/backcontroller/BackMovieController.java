@@ -49,6 +49,7 @@ public class BackMovieController extends BaseController{
     @Autowired
     private TypeService typeService;
 
+
     /**
      * 跳转到后台主页
      * @param model
@@ -65,7 +66,7 @@ public class BackMovieController extends BaseController{
 
         List<MovieInfo> movieInfoList = backendMovieService.findAllMovie();
 
-        List<Type> movieTypeList = backendMovieService.findAllMovieType();
+        List<Type> movieTypeList = typeService.getAllType();
 
         List<User> userList = backendMovieService.findUserByCommentNum();
 

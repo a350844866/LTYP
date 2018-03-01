@@ -8,10 +8,16 @@ import cn.vworld.mapper.BackendMovieMapper;
 import cn.vworld.mapper.MovieTypeMapper;
 import cn.vworld.mapper.TypeMapper;
 import cn.vworld.service.backservice.BackendMovieService;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.StringUtils;
+import redis.clients.jedis.Jedis;
+import redis.clients.jedis.JedisPool;
 
+import java.io.IOException;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
@@ -19,6 +25,12 @@ import java.util.UUID;
 @Service
 @Transactional
 public class BackendMovieServiceImpl implements BackendMovieService {
+
+    @Autowired
+    private JedisPool jedisPool;
+
+    private static final ObjectMapper objectMapper = new ObjectMapper();
+
 
     @Autowired
     private BackendMovieMapper backendMovieMapper;
@@ -33,6 +45,20 @@ public class BackendMovieServiceImpl implements BackendMovieService {
 
     @Override
     public Integer findMovieTypeNum() {
+        Jedis jedis = jedisPool.getResource();
+        String allTypeNum = jedis.get("LTYP_ALLTYPE_NUM");
+        try {
+            if (!StringUtils.isEmpty(allTypeNum)) {
+                Integer num = objectMapper.readValue(allTypeNum, int.class);
+                return num;
+            } else {
+                Integer num = backendMovieMapper.findMovieTypeNum();
+                jedis.set("LTYP_ALLTYPE_NUM", objectMapper.writeValueAsString(num));
+                return num;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return backendMovieMapper.findMovieTypeNum();
     }
 

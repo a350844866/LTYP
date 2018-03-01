@@ -16,9 +16,9 @@ spring:
     host: 192.168.10.128
     port: 6379
     pool:
-      max-active: 8
+      max-active: -1
       max-wait: -1
-      max-idle: 8
+      max-idle: -1
       min-idle: 0
     timeout: 0
     password:

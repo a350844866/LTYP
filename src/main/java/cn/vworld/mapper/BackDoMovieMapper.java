@@ -6,8 +6,14 @@ import cn.vworld.bean.MovieInfo;
 import java.util.List;
 
 public interface BackDoMovieMapper {
-    public MovieInfo findMovieInfoByMovieId(String movieId);
 
+
+    /**
+     * 通过movieId来查找图片信息
+     *
+     * @param movieId
+     * @return
+     */
     List<MovieImage> findMovieImageByMovieId(String movieId);
 
     /**
@@ -24,7 +30,17 @@ public interface BackDoMovieMapper {
      */
     void deleteMovieImageByMovieId(String movieId);
 
+    /**
+     * 通过movieId数组来删除电影信息
+     *
+     * @param movieIds
+     */
     void deleteMovieInfoByMovieIds(String[] movieIds);
 
+    /**
+     * 通过movieId数组来删除电影图片
+     *
+     * @param movieIds
+     */
     void deleteMovieImageByMovieIds(String[] movieIds);
 }

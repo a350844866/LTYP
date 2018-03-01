@@ -5,11 +5,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
 <mapper namespace="cn.vworld.mapper.BackDoMovieMapper">
 
-    <!-- 根据movieId选择movieInfo实例 -->
-    <select id="findMovieInfoByMovieId" resultType="MovieInfo">
-        select * from movie_info where movie_id=#{movieId}
-    </select>
-
     <!-- 根据movieId选择movieImage实例 -->
     <select id="findMovieImageByMovieId" resultType="MovieImage">
         select * from movie_image where movie_id=#{movieId}
