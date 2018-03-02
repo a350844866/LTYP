@@ -11,9 +11,14 @@ public interface UserService {
     //通过用户名和密码找到用户的详细信息
     User findUserByU_P(String username, String password);
 
+    /**
+     * 通过账号密码查询简单用户对象
+     *
+     * @param username
+     * @param password
+     * @return
+     */
     User findUserByU_P_simple(String username, String password);
-
-
 
     /**
      * 修改账户邮箱激活状态
@@ -128,11 +133,26 @@ public interface UserService {
      */
     User checkUsername(String username);
 
-
+    /**
+     * 根据关键字查询用户
+     * @param key
+     * @return
+     */
     int findUserNumBykey(String key);
 
+    /**
+     * 根据关键字查询用户列表
+     * @param showpage
+     * @param lines
+     * @param key
+     * @return
+     */
     List<User> findUserListByKey(int showpage, int lines, String key);
 
+    /**
+     * 查询用户数量
+     * @return
+     */
     int findAllUserNum();
 
 

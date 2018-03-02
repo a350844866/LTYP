@@ -113,13 +113,43 @@ public interface MovieService {
      */
     Integer typeSearchCount(String typeId);
 
+    /**
+     * 根据分类分页查询电影列表
+     *
+     * @param typeId
+     * @param i
+     * @param resultPageMovie
+     * @return
+     */
     List<MovieInfo> limitTypeSearch(String typeId, int i, Integer resultPageMovie);
 
+    /**
+     * 判断评分是否存在
+     * @param userId
+     * @param movieId
+     * @return
+     */
     Boolean isScoreExist(String userId, String movieId);
 
+    /**
+     * 插入评分
+     * @param userId
+     * @param movieId
+     * @param score
+     */
     void insertScore(String userId, String movieId, String score);
 
+    /**
+     * 获得平均分
+     * @param movieId
+     * @return
+     */
     Double getAvgScore(String movieId);
 
+    /**
+     * 更新平均分
+     * @param movieId
+     * @param avgScore
+     */
     void updateScore(String movieId, Double avgScore);
 }

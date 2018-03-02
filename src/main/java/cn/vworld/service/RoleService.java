@@ -23,11 +23,5 @@ public interface RoleService {
      */
     void deleteRoleById(String roleId);
 
-    /**
-     * 根据角色ID删除角色-用户关联表中的角色
-     * @param roleId 角色ID
-     */
-    void deleteRoleById_m(String roleId);
-
 
 }

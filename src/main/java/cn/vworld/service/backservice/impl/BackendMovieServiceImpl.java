@@ -76,10 +76,6 @@ public class BackendMovieServiceImpl implements BackendMovieService {
         return backendMovieMapper.findAllMovie();
     }
 
-    @Override
-    public List<Type> findAllMovieType() {
-        return backendMovieMapper.finAllMovieType();
-    }
 
     @Override
     public List<User> findUserByCommentNum() {
@@ -134,7 +130,7 @@ public class BackendMovieServiceImpl implements BackendMovieService {
     }
 
     @Override
-    public int findMovieByKey(String key) {
+    public int findMovieNumByKey(String key) {
         return backendMovieMapper.findMovieByKey(key);
     }
 

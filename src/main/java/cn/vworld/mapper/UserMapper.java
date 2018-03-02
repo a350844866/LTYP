@@ -84,9 +84,20 @@ public interface UserMapper {
      */
     int findUserNumByKey(String key);
 
-
+    /**
+     * 分页根据关键字查询用户列表
+     *
+     * @param showpage
+     * @param lines
+     * @param key
+     * @return
+     */
     List<User> findUserListByKey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 
+    /**
+     * 查找所有用户数量
+     * @return
+     */
     int findAllUserNum();
 
     

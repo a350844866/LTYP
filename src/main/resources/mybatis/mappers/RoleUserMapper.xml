@@ -10,5 +10,8 @@
         INSERT into role_user VALUES (#{userId},1)
     </insert>
 
+    <delete id="deleteRoleUserById">
+        delete from role_user where role_id =#{roleId}
+    </delete>
 
 </mapper>

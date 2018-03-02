@@ -32,10 +32,5 @@ public class RoleServiceImpl implements RoleService {
         roleMapper.deleteRoleById(roleId);
     }
 
-    @Override
-    public void deleteRoleById_m(String roleId) {
-        roleMapper.deleteRoleById_m(roleId);
-    }
-
 
 }

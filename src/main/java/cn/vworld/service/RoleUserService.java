@@ -1,6 +1,11 @@
-package cn.vworld.mapper;
+package cn.vworld.service;
 
-public interface RoleUserMapper {
+/**
+ * @author jiaxu
+ * @version $Id: RoleUserService.java, v 0.1 2018/3/1 18:09 jiaxu Exp $$
+ */
+public interface RoleUserService {
+
     /**
      * 注册的时候设置用户为普通用户
      *

@@ -24,7 +24,7 @@ public interface UserInfoMapper {
     void updateUserInfo(UserInfo userInfo);
 
     /**
-     *
+     * 更新用户信息
      * @param userInfo
      */
     void updateUserInfoByUser(UserInfo userInfo);

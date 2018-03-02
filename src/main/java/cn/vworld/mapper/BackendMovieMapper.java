@@ -31,12 +31,20 @@ public interface BackendMovieMapper {
      //查询当前页所要的数据
     List<MovieInfo> findMovieList(@Param("showpage") int showpage, @Param("lines") int lines);
 
+    /**
+     * 保存电影信息
+     *
+     * @param movieInfo
+     */
     public void saveMovie(MovieInfo movieInfo);
 
     // 根据评论总量选择排名前五的电影
     List<MovieInfo> findFiveMovie();
 
-
+    /**
+     * 入库电影详情页电影图片
+     * @param movieImage
+     */
     void saveMoviexqPath(MovieImage movieImage);
 
     /**
@@ -45,8 +53,20 @@ public interface BackendMovieMapper {
      */
     void deleteNullPosterUrl(String imageId);
 
+    /**
+     *
+     * @param key
+     * @return
+     */
     int findMovieByKey(String key);
 
+    /**
+     * 根据关键词分页查找电影
+     * @param showpage
+     * @param lines
+     * @param key
+     * @return
+     */
     List<MovieInfo> findMovieListBykey(@Param("showpage") int showpage, @Param("lines") int lines, @Param("key") String key);
 
     /**

@@ -103,7 +103,7 @@
         delete from movie_image where image_id=#{imageId}
     </delete>
 
-    <select id="findMovieByKey" resultType="Integer">
+    <select id="findMovieNumByKey" resultType="Integer">
          select count(*) from movie_info
 where movie_name like "%"#{key}"%"
       or director like "%"#{key}"%" or actor like "%"#{key}"%" or country like "%"#{key}"%"

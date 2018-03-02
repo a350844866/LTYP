@@ -23,11 +23,7 @@ public interface BackendMovieService {
      */
     List<MovieInfo> findAllMovie();
 
-    /**
-     * 查询所有的电影类型
-     * @return 电影类型集合
-     */
-    List<Type> findAllMovieType();
+
 
     // 通过评论总量去选取5个最活跃的用户
     List<User> findUserByCommentNum();
@@ -41,7 +37,7 @@ public interface BackendMovieService {
     /**
      * 根据用户输入的搜索内容查询满足条件的电影
      */
-    int findMovieByKey(String key);
+    int findMovieNumByKey(String key);
 
     List<MovieInfo> findMovieListBykey(int showpage, int lines, String key);
 

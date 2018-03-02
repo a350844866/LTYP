@@ -2,6 +2,7 @@ package cn.vworld.controller;
 
 import cn.vworld.bean.Role;
 import cn.vworld.service.RoleService;
+import cn.vworld.service.RoleUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +17,9 @@ import java.util.List;
 public class RoleController {
     @Autowired
     private RoleService roleService;
+
+    @Autowired
+    private RoleUserService roleUserService;
 
     @RequestMapping("/addRole")
     public String toRole(){
@@ -37,7 +41,7 @@ public class RoleController {
 
     @RequestMapping("/delete")
     public String deleteRole(String roleId){
-        roleService.deleteRoleById_m(roleId);  //角色用户关联表
+        roleUserService.deleteRoleUserById(roleId);  //角色用户关联表
         roleService.deleteRoleById(roleId);
         return "redirect:/role/list";
     }

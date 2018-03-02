@@ -23,9 +23,6 @@
 
     </delete>
 
-    <delete id="deleteRoleById_m">
-        delete from role_user where role_id =#{roleId}
-    </delete>
 
 
 </mapper>
