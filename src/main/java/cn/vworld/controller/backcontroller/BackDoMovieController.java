@@ -8,8 +8,7 @@ import cn.vworld.service.MovieTypeService;
 import cn.vworld.service.TypeService;
 import cn.vworld.service.backservice.BackDoMovieService;
 import cn.vworld.service.backservice.BackendMovieService;
-import cn.vworld.tool.FileUtil;
-import org.apache.ibatis.annotations.Param;
+import cn.vworld.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -18,8 +17,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
-import redis.clients.jedis.Jedis;
-import redis.clients.jedis.JedisCluster;
 import redis.clients.jedis.JedisPool;
 
 import javax.servlet.http.HttpServletRequest;

@@ -2,10 +2,9 @@ package cn.vworld.controller;
 
 import cn.vworld.bean.User;
 import cn.vworld.bean.UserInfo;
-import cn.vworld.service.UserInfoService;
 import cn.vworld.service.UserService;
 
-import cn.vworld.tool.Md5HashPassword;
+import cn.vworld.utils.Md5HashPassword;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;

@@ -5,7 +5,7 @@ import cn.vworld.mapper.RoleUserMapper;
 import cn.vworld.mapper.UserInfoMapper;
 import cn.vworld.mapper.UserMapper;
 import cn.vworld.service.UserService;
-import cn.vworld.tool.Md5HashPassword;
+import cn.vworld.utils.Md5HashPassword;
 import cn.vworld.utils.SendMail;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

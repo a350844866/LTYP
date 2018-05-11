@@ -1,4 +1,4 @@
-package cn.vworld.tool;
+package cn.vworld.utils;
 
 import cn.vworld.bean.Rangking;
 import org.jsoup.Jsoup;

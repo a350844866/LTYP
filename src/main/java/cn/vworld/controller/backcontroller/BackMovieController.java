@@ -1,20 +1,16 @@
 package cn.vworld.controller.backcontroller;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
 import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.Type;
 import cn.vworld.bean.TypeAndCount;
 import cn.vworld.bean.User;
 import cn.vworld.controller.BaseController;
 import cn.vworld.service.CommentService;
-import cn.vworld.service.MovieService;
 import cn.vworld.service.TypeService;
 import cn.vworld.service.UserService;
 import cn.vworld.service.backservice.BackendMovieService;
 
-import cn.vworld.tool.FileUtil;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.apache.commons.collections.MapUtils;
+import cn.vworld.utils.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
@@ -25,12 +21,10 @@ import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.UUID;
-import java.util.stream.Stream;
 
 @Controller
 @RequestMapping("/backend")
@@ -168,7 +162,7 @@ public class BackMovieController extends BaseController{
      * @return
      */
     @RequestMapping("/toMovieList")
-    public String toMovieList(MovieInfo movieInfo, HttpServletRequest request, int[] typeId) {
+    public String addMovieAndToMovieList(MovieInfo movieInfo, HttpServletRequest request, int[] typeId) {
 
         if ("".equals(movieInfo.getMovieName()) && "".equals(movieInfo.getShowTime())
                 && "".equals(movieInfo.getDescription()) && "".equals(movieInfo.getDirector())

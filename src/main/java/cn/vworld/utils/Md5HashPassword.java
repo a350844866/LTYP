@@ -1,4 +1,4 @@
-package cn.vworld.tool;
+package cn.vworld.utils;
 
 import org.apache.shiro.crypto.hash.Md5Hash;
 

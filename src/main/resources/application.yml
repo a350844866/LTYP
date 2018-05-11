@@ -13,7 +13,7 @@ spring:
       prefix: /WEB-INF/
       suffix: .jsp
   redis:
-    host: 192.168.10.128
+    host: 192.168.16.129
     port: 6379
     pool:
       max-active: -1
@@ -27,3 +27,4 @@ mybatis:
 #  cn.vworld.mapper-locations: classpath:/mybatis/mappers/*.xml
   type-aliases-package: cn.vworld.bean
   mapper-locations: classpath:/mybatis/mappers/*.xml
+

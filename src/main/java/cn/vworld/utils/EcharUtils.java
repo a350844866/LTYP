@@ -1,4 +1,4 @@
-package cn.vworld.tool;
+package cn.vworld.utils;
 
 
 public class EcharUtils {

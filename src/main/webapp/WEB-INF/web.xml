@@ -6,7 +6,8 @@
          xmlns="http://java.sun.com/xml/ns/javaee"
          xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
          id="jt-manage" version="2.5">
-  <display-name>Archetype Created Web Application</display-name>
+
+    <display-name>Archetype Created Web Application</display-name>
     <welcome-file-list>
         <welcome-file>../jsp</welcome-file>
     </welcome-file-list>
@@ -39,5 +40,6 @@
         <filter-name>shiroFilter</filter-name>
         <url-pattern>/*</url-pattern>
     </filter-mapping>
+
 
 </web-app>

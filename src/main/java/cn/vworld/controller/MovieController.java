@@ -6,7 +6,6 @@ import cn.vworld.bean.MovieInfo;
 import cn.vworld.bean.User;
 import cn.vworld.service.MovieService;
 import cn.vworld.service.TypeService;
-import com.sun.org.apache.xpath.internal.operations.Bool;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;

@@ -1,8 +1,6 @@
 package cn.vworld.shiro;
 
-import java.util.Arrays;
-
-import cn.vworld.tool.Md5HashPassword;
+import cn.vworld.utils.Md5HashPassword;
 import org.apache.shiro.authc.AuthenticationInfo;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UsernamePasswordToken;

@@ -56,7 +56,7 @@
 
         </div>
         <div class="fbneirong">
-            <form class="am-form" action="${ctx}/backend/toMovieList" method="post" enctype="multipart/form-data">
+            <form class="am-form" action="${ctx}/backend/update" method="post" enctype="multipart/form-data">
                 <input name="poster" hidden="hidden" value="">
                 <input name="movieId" hidden="hidden" value="${movieId}">
                 <div class="am-form-group am-cf">
@@ -125,7 +125,7 @@
                 <div class="am-form-group am-cf">
                     <div class="zuo">电影来源地：</div>
                     <div class="you" style="height: 45px;">
-                        <input type="text" name="country" id="doc-ipt-file-1" value="${movieInfo.country}"></input>
+                        <input type="text" name="country" id="doc-ipt-file-1" value="${movieInfo.country}">
                     </div>
                 </div>
                 <div class="am-form-group am-cf">

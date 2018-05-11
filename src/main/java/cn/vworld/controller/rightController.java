@@ -2,7 +2,7 @@
 package cn.vworld.controller;
 
 import cn.vworld.bean.EchartDate;
-import cn.vworld.tool.GetHtml;
+import cn.vworld.utils.GetHtml;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
